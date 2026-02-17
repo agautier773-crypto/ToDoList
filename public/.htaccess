@@ -1,0 +1,8 @@
+# Activer module réecriture
+RewriteEngine On
+
+# si dans l'url j'ai quelque chose qui n'est ni un fichier ni un dossier
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+# alors je redirige sur l'index
+RewriteRule ^.*$ index.php [QSA,L]
