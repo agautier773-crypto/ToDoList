@@ -1,0 +1,68 @@
+-- Copie Colle le DCL et DDL
+-- DCL
+
+-- Creation BDD
+Create Database IF NOT EXISTS ToDoList;
+
+-- Creation user
+CREATE USER IF NOT EXISTS 'lambdas'@'localhost' IDENTIFIED BY 'lambdas';
+
+-- Accorde les droit sur la base
+GRANT ALL PRIVILEGES ON ToDoList.* TO 'lambdas'@'localhost';
+
+USE ToDoList;
+
+
+-- DDL
+------------------------------- DROP --------------------------------
+DROP TABLE IF EXISTS tache_user;
+DROP TABLE IF EXISTS tache;
+DROP TABLE IF EXISTS user;
+DROP TABLE IF EXISTS categorie;
+
+------------------------------ CREATE -------------------------------
+CREATE TABLE IF NOT EXISTS categorie(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(100) NOT NULL
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS tache(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    titre VARCHAR(200) NOT NULL,
+    description TEXT,
+    date_creation TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    date_fin DATE, -- à préciser
+    categorie_id INT NOT NULL,
+    statut ENUM('à faire', 'en cours', 'terminé') DEFAULT 'à faire',
+    FOREIGN KEY (categorie_id) REFERENCES categorie(id) ON UPDATE CASCADE ON DELETE RESTRICT
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS user(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(100) NOT NULL,
+    prenom VARCHAR(100) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    date_creation TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+CREATE TABLE IF NOT EXISTS tache_user(
+    tache_id INT,
+    user_id INT,
+
+    FOREIGN KEY (tache_id) REFERENCES tache(id) ON UPDATE CASCADE ON DELETE RESTRICT,
+    FOREIGN KEY (user_id) REFERENCES user(id) ON UPDATE CASCADE ON DELETE RESTRICT
+) ENGINE=InnoDB;
+
+
+
+-- DML
+------------------------------- DELETE --------------------------------
+TRUNCATE TABLE tache_user;
+TRUNCATE TABLE user;
+TRUNCATE TABLE tache;
+TRUNCATE TABLE categorie;
+
+
+commit;
+---------------------------------------------------------------------
