@@ -8,14 +8,13 @@ use App\Core\Wizardvalidator;
 
 $router = new App\Core\Router();
 
-
 $router -> addMiddleware([
     // ajout des middlewares
 ]);
 
 //var_dump(password_hash("azerty", PASSWORD_DEFAULT));
 $router
-   // ajout des routes
+    ->get("/", App\Controllers\HomepageController::class ."::home")
 
 
 

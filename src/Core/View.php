@@ -15,11 +15,11 @@ class View {
      *
      * @var string
      */
-    public static string $view_path = "C:/Wamp64/www/WizardFrameworks/views";
+    public static string $view_path = "C:/Wamp64/www/ToDoList/views";
     /**
      * @var string
      */
-    public static string $layout_path = "C:/Wamp64/www/WizardFrameworks/views/layouts";
+    public static string $layout_path = "C:/Wamp64/www/ToDoList/views/layouts";
 
     /**
      * Affiche une vue dans le layout principal
