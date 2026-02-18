@@ -58,7 +58,7 @@
         <a class="navbar-brand" href="#"><i class="bi bi-check2-square me-2"></i>ToDoList</a>
         <div class="d-flex gap-2">
             <a href="#" class="btn btn-outline-c btn-sm px-3">Se connecter</a>
-            <a href="#" class="btn btn-violet btn-sm px-3">S'inscrire</a>
+            <a href="/users/create" class="btn btn-violet btn-sm px-3">S'inscrire</a>
         </div>
     </div>
 </nav>
@@ -68,10 +68,6 @@
     <div class="container" style="max-width:620px">
         <h1>Organisez vos tâches,<br/><span>sans prise de tête.</span></h1>
         <p class="mt-3 mb-4">Classez par catégorie, suivez l'état de chaque tâche, et avancez sereinement au quotidien.</p>
-        <div class="d-flex gap-3 justify-content-center">
-            <a href="#" class="btn btn-violet px-4"><i class="bi bi-rocket-takeoff me-2"></i>Commencer gratuitement</a>
-            <a href="#" class="btn btn-outline-c px-4">Se connecter</a>
-        </div>
     </div>
 </section>
 
@@ -149,7 +145,7 @@
     <div class="container">
         <h2 class="fw-bold mb-3">Prêt à vous organiser ?</h2>
         <div class="d-flex gap-3 justify-content-center flex-wrap">
-            <a href="#" class="btn btn-violet px-4"><i class="bi bi-person-plus me-2"></i>Créer un compte</a>
+            <a href="/users/create" class="btn btn-violet px-4"><i class="bi bi-person-plus me-2"></i>Créer un compte</a>
             <a href="#" class="btn btn-outline-c px-4">Se connecter</a>
         </div>
     </div>
