@@ -204,4 +204,14 @@ class Model {
         }
 
     }
+
+    public function fill(array $values)
+    {
+        $attr = explode(", ", $this->getFields());
+        foreach ($attr as $field) {
+            if (property_exists($this, $field)){
+                $this->$field = $values[$field];
+            }
+        }
+    }
 }

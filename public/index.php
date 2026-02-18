@@ -13,12 +13,13 @@ $router -> addMiddleware([
     // ajout des middlewares
 ]);
 
-//var_dump(password_hash("azerty", PASSWORD_DEFAULT));
-$router
    // ajout des routes
+$router->get("/users/create", App\Controllers\UserController::class . "::create");
+$router->post("/users/create", App\Controllers\UserController::class . "::store");
+$router->get("/users/terms", App\Controllers\UserController::class . "::terms");
+$router->get("/users/privacy", App\Controllers\UserController::class . "::privacy");
 
 
-
-->run();
+$router->run();
 
 //$user = (new User()) -> find(1) ->getNameRole();
