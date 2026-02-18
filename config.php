@@ -2,7 +2,7 @@
 
 return [
     "app" => [
-        "name" => "ToDOList",
+        "name" => "ToDoList",
     ],
     "database" => [
         "host" => "localhost",
