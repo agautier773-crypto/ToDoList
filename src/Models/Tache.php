@@ -3,11 +3,16 @@
 namespace App\Models;
 use App\Core\Model;
 use App\Core\Traits\HasRelationships;
-use App\Core\Traits\IsFillable;
 
+
+/**
+ * Représente une tâche d'un utilisateur.
+ *
+ * @package App\Core\Model
+ */
 class Tache extends Model{
     use HasRelationships;
-    use IsFillable;
+
 
     public int $id;
     public string $titre = "";
@@ -16,21 +21,38 @@ class Tache extends Model{
     public string $date_fin = "";
     public string $statut = "";
 
+    // Regarder si on laisse une catégorie à null
     public ?int $categorie_id = null;
 
+    /**
+     * Liste des champs utilisés par le trait IsFillable
+     * pour la génération et la préparation des requêtes SQL.
+     *
+     * @var string[]
+     */
     public array $fillable = [
         "titre",
         "description",
-        "date_creation",
         "date_fin",
         "statut",
     ];
 
+    /**
+     * Utilisateurs associés à cette tâche.
+     *
+     * @return User[]
+     */
     public function user(){
         return $this->belongsToMany(User::class, "tache_user");
     }
+
+    /**
+     * Catégorie associé à la tâche.
+     *
+     * @return User[]|null
+     */
     public function categorie(){
-        return $this->hasMany(Categorie, "categorie_id");
+        return $this->belongsTo(Categorie::class, "categorie_id");
     }
 }
 

@@ -1,0 +1,144 @@
+Index: src/Models/Tache.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\n\r\nnamespace App\\Models;\r\nuse App\\Core\\Model;\r\nuse App\\Core\\Traits\\HasRelationships;\r\nuse App\\Core\\Traits\\IsFillable;\r\n\r\nclass Tache extends Model{\r\n    use HasRelationships;\r\n    use IsFillable;\r\n\r\n    public int $id;\r\n    public string $titre = \"\";\r\n    public string $description = \"\";\r\n    public string $date_creation = \"\";\r\n    public string $date_fin = \"\";\r\n    public string $statut = \"\";\r\n\r\n    public ?int $categorie_id = null;\r\n\r\n    public array $fillable = [\r\n        \"titre\",\r\n        \"description\",\r\n        \"date_creation\",\r\n        \"date_fin\",\r\n        \"statut\",\r\n    ];\r\n\r\n    public function user(){\r\n        return $this->belongsToMany(User::class, \"tache_user\");\r\n    }\r\n    public function categorie(){\r\n        return $this->hasMany(Categorie, \"categorie_id\");\r\n    }\r\n}\r\n\r\n
+===================================================================
+diff --git a/src/Models/Tache.php b/src/Models/Tache.php
+--- a/src/Models/Tache.php	
++++ b/src/Models/Tache.php	
+@@ -3,11 +3,10 @@
+ namespace App\Models;
+ use App\Core\Model;
+ use App\Core\Traits\HasRelationships;
+-use App\Core\Traits\IsFillable;
++
+ 
+ class Tache extends Model{
+     use HasRelationships;
+-    use IsFillable;
+ 
+     public int $id;
+     public string $titre = "";
+@@ -16,21 +15,20 @@
+     public string $date_fin = "";
+     public string $statut = "";
+ 
+-    public ?int $categorie_id = null;
++    public ?int $categorie_id = null; // à rectifier plus tard si on part sur un autre principe
+ 
+     public array $fillable = [
+         "titre",
+         "description",
+-        "date_creation",
+         "date_fin",
+         "statut",
+     ];
+ 
+-    public function user(){
++    public function users(){
+         return $this->belongsToMany(User::class, "tache_user");
+     }
+     public function categorie(){
+-        return $this->hasMany(Categorie, "categorie_id");
++        return $this->belongsTo(Categorie::class, "categorie_id");
+     }
+ }
+ 
+Index: src/Models/User.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\n namespace App\\Models;\r\n\r\n use App\\Core\\Model;\r\n use App\\Core\\Traits\\HasRelationships;\r\n use App\\Core\\Traits\\IsFillable;\r\n\r\n class User extends Model {\r\n     use HasRelationships;\r\n     public int $id;\r\n     public string $nom = \"\";\r\n     public string $prenom = \"\";\r\n     public string $email = \"\";\r\n     public string $password = \"\";\r\n     public string $date_creation = \"\";\r\n     public array $fillable = [\r\n         \"nom\",\r\n         \"prenom\",\r\n         \"email\",\r\n         \"password\",\r\n         \"date_creation\",\r\n     ];\r\n     public array $tache;\r\n\r\n     public function taches(){\r\n         return $this->belongsToMany(Tache::class, \"tache_user\");\r\n     }\r\n }
+===================================================================
+diff --git a/src/Models/User.php b/src/Models/User.php
+--- a/src/Models/User.php	
++++ b/src/Models/User.php	
+@@ -3,7 +3,7 @@
+ 
+  use App\Core\Model;
+  use App\Core\Traits\HasRelationships;
+- use App\Core\Traits\IsFillable;
++
+ 
+  class User extends Model {
+      use HasRelationships;
+@@ -18,9 +18,8 @@
+          "prenom",
+          "email",
+          "password",
+-         "date_creation",
+      ];
+-     public array $tache;
++     public array $taches;
+ 
+      public function taches(){
+          return $this->belongsToMany(Tache::class, "tache_user");
+Index: src/Models/Categorie.php
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?php\r\n\r\nnamespace App\\Models;\r\n\r\nuse App\\Core\\Model;\r\nuse App\\Core\\Traits\\HasRelationships;\r\nuse App\\Core\\Traits\\IsFillable;\r\n\r\nclass Categorie extends Model{\r\n\r\n    use HasRelationships;\r\n    use IsFillable;\r\n\r\n    public int $id;\r\n    public string $nom = \"\";\r\n\r\n    public array $fillable = [\r\n        \"nom\",\r\n    ];\r\n\r\n    public function tache(){\r\n        return $this->belongsTo(Tache::class, \"categorie_id\");\r\n    }\r\n}\r\n
+===================================================================
+diff --git a/src/Models/Categorie.php b/src/Models/Categorie.php
+--- a/src/Models/Categorie.php	
++++ b/src/Models/Categorie.php	
+@@ -18,7 +18,7 @@
+         "nom",
+     ];
+ 
+-    public function tache(){
+-        return $this->belongsTo(Tache::class, "categorie_id");
++    public function taches(){
++        return $this->hasMany(Tache::class, "categorie_id");
+     }
+ }
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"3a372b10-31ce-4580-993d-1f614e89d01a\" name=\"Changes\" comment=\"\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/Models/Categorie.php\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/Models/Tache.php\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/Models/User.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ComposerSettings\">\r\n    <execution />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"39ps3ujQAXNUjXaQwWkLJfV4QeV\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"WebServerToolWindowFactoryState\": \"false\",\r\n    \"node.js.detected.package.eslint\": \"true\",\r\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\r\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\r\n    \"nodejs_package_manager_path\": \"npm\",\r\n    \"vue.rearranger.settings.migration\": \"true\"\r\n  }\r\n}]]></component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"3a372b10-31ce-4580-993d-1f614e89d01a\" name=\"Changes\" comment=\"\" />\r\n      <created>1771404150799</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1771404150799</updated>\r\n      <workItem from=\"1771404151866\" duration=\"465000\" />\r\n      <workItem from=\"1771417468446\" duration=\"1984000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n</project>
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -5,10 +5,10 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="3a372b10-31ce-4580-993d-1f614e89d01a" name="Changes" comment="">
+-      <change afterPath="$PROJECT_DIR$/src/Models/Categorie.php" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/Models/Tache.php" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/Models/User.php" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Models/Categorie.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Categorie.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Models/Tache.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Tache.php" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/User.php" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -29,18 +29,18 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "WebServerToolWindowFactoryState": "false",
+-    "node.js.detected.package.eslint": "true",
+-    "node.js.selected.package.eslint": "(autodetect)",
+-    "node.js.selected.package.tslint": "(autodetect)",
+-    "nodejs_package_manager_path": "npm",
+-    "vue.rearranger.settings.migration": "true"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
++    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
++    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
++    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
++    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
++    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+     <task active="true" id="Default" summary="Default task">
