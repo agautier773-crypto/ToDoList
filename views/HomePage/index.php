@@ -1,6 +1,7 @@
+
 <style>
     :root {
-        --violet: #7048E9;
+    --violet: #7048E9;
         --cyan:   #1AF3D9;
         --sky:    #7EB5D8;
         --blue:   #406DCF;
@@ -9,22 +10,22 @@
 
     /* NAV */
     .navbar { background: #16132E; border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .navbar-brand { color: var(--cyan) !important; font-weight: 700; font-size: 1.3rem; }
+        .navbar-brand { color: var(--cyan) !important; font-weight: 700; font-size: 1.3rem; }
     .btn-violet  { background: var(--violet); color: #fff; border: none; }
-    .btn-violet:hover  { background: #5a38cc; color: #fff; }
-    .btn-outline-c { color: var(--cyan); border: 1px solid var(--cyan); background: transparent; }
+            .btn-violet:hover  { background: #5a38cc; color: #fff; }
+                .btn-outline-c { color: var(--cyan); border: 1px solid var(--cyan); background: transparent; }
     .btn-outline-c:hover { background: var(--cyan); color: #0E0C1E; }
 
-    /* HERO */
-    .hero { background: linear-gradient(135deg, #16132E 0%, #1a1440 100%); padding: 5rem 0; }
+                    /* HERO */
+                    .hero { background: linear-gradient(135deg, #16132E 0%, #1a1440 100%); padding: 5rem 0; }
     .hero h1 { font-size: 2.4rem; font-weight: 800; }
     .hero h1 span { color: var(--cyan); }
     .hero p { color: rgba(200,197,255,0.65); }
 
     /* CARDS */
     .card-dark {
-        background: rgba(255,255,255,0.04);
-        border: 1px solid rgba(255,255,255,0.09);
+                            background: rgba(255,255,255,0.04);
+                            border: 1px solid rgba(255,255,255,0.09);
         border-radius: 14px;
     }
     .card-dark:hover { border-color: var(--violet); }
@@ -44,11 +45,11 @@
     .cta { background: linear-gradient(135deg, rgba(112,72,233,0.2), rgba(64,109,207,0.15)); border-top: 1px solid rgba(112,72,233,0.2); }
 
     footer { background: #16132E; border-top: 1px solid rgba(255,255,255,0.07); font-size: .82rem; color: rgba(200,197,255,.35); }
-    footer span { color: var(--cyan); }
+                            footer span { color: var(--cyan); }
 
     .section-label { color: var(--cyan); font-size: .75rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
 </style>
-</head>
+
 <body>
 
 <!-- NAV -->

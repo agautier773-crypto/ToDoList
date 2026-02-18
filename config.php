@@ -2,12 +2,12 @@
 
 return [
     "app" => [
-        "name" => "todolist",
+        "name" => "ToDoList",
     ],
     "database" => [
         "host" => "localhost",
-        "name" => "todolist",
-        "username" => "root",
-        "password" => "",
+        "name" => "ToDoList",
+        "username" => "lambdas",
+        "password" => "lambdas",
     ],
 ];
