@@ -18,7 +18,9 @@ $router
     ->post("/users/create", App\Controllers\UserController::class . "::store")
     ->get("/users/terms", App\Controllers\UserController::class . "::terms")
     ->get("/users/privacy", App\Controllers\UserController::class . "::privacy")
-
+    ->get("/login", App\Controllers\AuthController::class . "::login")
+    ->post("/login", App\Controllers\AuthController::class . "::Attemptlogin")
+    ->get("/logout", App\Controllers\AuthController::class . "::logout")
 
 ->run();
 
