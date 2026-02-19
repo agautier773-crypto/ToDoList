@@ -101,7 +101,7 @@ if (isset($tache->id)){
     footer { background: #16132E; border-top: 1px solid rgba(255,255,255,0.07); font-size: .82rem; color: rgba(200,197,255,.35); }
     footer span { color: var(--cyan); }
 </style>
-</head>
+
 <body>
 
 <!-- NAV -->
@@ -201,7 +201,7 @@ if (isset($tache->id)){
         <button type="submit" class="btn btn-violet px-4 flex-grow-1">
             <i class="bi bi-plus-circle me-2"></i><?= $titreBtn ?>
         </button>
-        <a href="/taches/index" class="btn btn-outline-c px-4">Annuler</a>
+        <a href="/tache" class="btn btn-outline-c px-4">Annuler</a>
     </div>
 
     </form>

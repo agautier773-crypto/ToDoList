@@ -2,23 +2,15 @@
 
 namespace App\Controllers;
 
-use App\Core\Session;
-use App\Core\View;
-namespace App\Controllers;
-
-use App\Core\Database;
-use App\Core\Session;
-use App\Core\View;
 use App\Core\Controller;
+use App\Core\Session;
+use App\Core\View;
 use App\Core\Wizardvalidator;
 use App\Models\Categorie;
 use App\Models\Tache;
-use App\Models\User;
-use App\Core\Traits\HasRelationships;
-
-class TacheController extends \App\Core\Controller{
 
 
+class TacheController extends Controller{
     public function create(){
         $tache = new Tache();
         $categories = (new Categorie())->findAll();
@@ -27,7 +19,6 @@ class TacheController extends \App\Core\Controller{
             'categories'=> $categories,
         ]);
     }
-
 
     public function store(){
         var_dump($_POST);
@@ -59,7 +50,7 @@ class TacheController extends \App\Core\Controller{
 
         $tache->save();
         Session::setFlash("success", "Tache bien créer !");
-        $this->redirect("/tache/index");
+        $this->redirect("/tache");
     }
 
     /**
@@ -89,7 +80,7 @@ class TacheController extends \App\Core\Controller{
      *
      * @return void
      */
-    public function update(mixed $id)
+    public function update(mixed $id): void
     {
         $id=intval($id);
         $tache = (new Tache())->find($id);
@@ -119,20 +110,13 @@ class TacheController extends \App\Core\Controller{
 //        die;
         $tache->save();
 
-        $this->redirect("/tache/index");
+        $this->redirect("/tache");
 
     }
-
-
-
-use App\Helpers;
-
-class TacheController extends Controller{
-
     public function index(){
         View::render("tache.index", [
-            "categorie" =>(new Categorie())->findAll(),
-            "taches" =>(new Tache()) -> findAll(),
+            "categories" =>(new Categorie())->findAll(),
+            "tache" =>(new Tache()) -> findAll(),
         ]);
     }
 

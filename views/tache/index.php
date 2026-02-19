@@ -102,22 +102,22 @@
     <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-3">
         <div>
             <h1 class="fw-bold mb-1" style="font-size:1.8rem;">Mes tâches</h1>
-            <p style="color:rgba(200,197,255,.5);font-size:.9rem;margin:0;"><?= count($taches) ?> tâches au total</p>
+            <p style="color:rgba(200,197,255,.5);font-size:.9rem;margin:0;"><?= count($tache) ?> tâches au total</p>
         </div>
         <a href="#" class="btn btn-violet px-4">
             <i class="bi bi-plus-circle me-2"></i>Nouvelle tâche
         </a>
     </div>
 
-    <?php foreach ($categorie as $cat): ?>
+    <?php foreach ($categories as $cat): ?>
         <div class="mb-4">
             <div class="cat-header">
                 <span class="cat-name"><?= $cat->nom ?></span>
                 <span class="cat-count">
                     <?php
                     $count = 0;
-                    foreach ($taches as $tache) {
-                        if ($tache->categorie_id === $cat->id) $count++;
+                    foreach ($tache as $taches) {
+                        if ($taches->categorie_id === $cat->id) $count++;
                     }
                     echo $count . ' tâche' . ($count > 1 ? 's' : '');
                     ?>
@@ -125,8 +125,8 @@
             </div>
             <?php
             $aTachesCat = false;
-            foreach ($taches as $tache) {
-                if ($tache->categorie_id === $cat->id) {
+            foreach ($tache as $taches) {
+                if ($taches->categorie_id === $cat->id) {
                     $aTachesCat = true;
                     break;
                 }
@@ -138,19 +138,19 @@
                 </div>
             <?php else: ?>
                 <div class="d-flex flex-column gap-2">
-                    <?php foreach ($taches as $tache): ?>
-                        <?php if ($tache->categorie_id !== $cat->id) continue; ?>
+                    <?php foreach ($tache as $taches): ?>
+                        <?php if ($taches->categorie_id !== $cat->id) continue; ?>
                         <div class="task-row">
                             <i class="bi bi-check-circle-fill fs-5"></i>
                             <div class="flex-grow-1">
-                                <div class="task-title"><?= $tache->titre ?></div>
-                                <div class="task-date">Début : <?= $tache->date_creation ?> — Fin : <?= $tache->date_fin ?></div>
+                                <div class="task-title"><?= $taches->titre ?></div>
+                                <div class="task-date">Début : <?= $taches->date_creation ?> — Fin : <?= $taches->date_fin ?></div>
                             </div>
-                            <span class="badge badge-done rounded-pill px-2"><?= $tache->statut ?></span>
+                            <span class="badge badge-done rounded-pill px-2"><?= $taches->statut ?></span>
                             <div class="d-flex gap-2">
-                                <button class="btn-action btn-edit"><i class="bi bi-pencil"></i> Modifier</button>
-                                <a href="/tache/show/<?= $tache->id ?>" class="btn-action btn-show"><i class="bi bi-eye"></i> Afficher</a>
-                                <a href="/tache/delete/<?=$tache->id?>" class="btn-action btn-delete"><i class="bi bi-trash"></i> Supprimer</a>
+                                <a href="/tache/update/<?= $taches->id?>" class="btn-action btn-edit"><i class="bi bi-pencil"></i> Modifier</a>
+                                <a href="/tache/show/<?= $taches->id ?>" class="btn-action btn-show"><i class="bi bi-eye"></i> Afficher</a>
+                                <a href="/tache/delete/<?=$taches->id?>" class="btn-action btn-delete"><i class="bi bi-trash"></i> Supprimer</a>
                             </div>
                         </div>
                     <?php endforeach; ?>
