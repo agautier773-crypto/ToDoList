@@ -36,10 +36,12 @@ use App\Core\Auth;
             <a class="navbar-brand" href="/"/><i class="bi bi-check2-square me-2"></i>ToDoList</a>
             <div class="d-flex gap-2">
                 <?php if (\App\Core\Auth::check()): ?>
+                    <a href="/tache" class="btn btn-outline-c btn-sm px-3"> Liste des tâches</a>
                 <a href="/logout" class="btn btn-outline-c btn-sm px-3">Se déconnecter</a>
                 <?php else: ?>
                 <a href="/login" class="btn btn-outline-c btn-sm px-3">Se connecter</a>
                 <a href="/users/create" class="btn btn-violet btn-sm px-3">S'inscrire</a>
+
                 <?php endif; ?>
             </div>
         </div>
