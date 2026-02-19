@@ -52,16 +52,7 @@
 
 <body>
 
-<!-- NAV -->
-<nav class="navbar">
-    <div class="container d-flex justify-content-between align-items-center">
-        <a class="navbar-brand" href="#"><i class="bi bi-check2-square me-2"></i>ToDoList</a>
-        <div class="d-flex gap-2">
-            <a href="#" class="btn btn-outline-c btn-sm px-3">Se connecter</a>
-            <a href="/users/create" class="btn btn-violet btn-sm px-3">S'inscrire</a>
-        </div>
-    </div>
-</nav>
+
 
 <!-- HERO -->
 <section class="hero text-center">
@@ -146,7 +137,7 @@
         <h2 class="fw-bold mb-3">Prêt à vous organiser ?</h2>
         <div class="d-flex gap-3 justify-content-center flex-wrap">
             <a href="/users/create" class="btn btn-violet px-4"><i class="bi bi-person-plus me-2"></i>Créer un compte</a>
-            <a href="#" class="btn btn-outline-c px-4">Se connecter</a>
+            <a href="/login" class="btn btn-outline-c px-4">Se connecter</a>
         </div>
     </div>
 </section>

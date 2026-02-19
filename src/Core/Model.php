@@ -111,7 +111,7 @@ class Model {
      * @param string $value
      * @return array
      */
-    public function findBy(string $field, string $value, bool $isOne = false):Model|array{
+    public function findBy(string $field, string $value, bool $isOne = false):Model|array|null{
         # SELECT * FROM user WHERE mail = toto@trotro.wip
         $sql = "SELECT * FROM {$this->getNameTable()} WHERE {$field} = :{$field}";
         return $this->readQuery($sql, ["{$field}" => $value], $isOne);
@@ -180,7 +180,8 @@ class Model {
         }
         $req->setFetchMode(PDO::FETCH_CLASS, $class);
         if ($isOne){
-            return $req->fetch();
+            $result = $req->fetch();
+            return $result ?: null;
         }
         return $req->fetchAll();
     }
