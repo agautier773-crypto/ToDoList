@@ -24,6 +24,7 @@ class Tache extends Model{
     // Regarder si on laisse une catégorie à null
     public ?int $categorie_id = null;
 
+
     /**
      * Liste des champs utilisés par le trait IsFillable
      * pour la génération et la préparation des requêtes SQL.
@@ -35,6 +36,7 @@ class Tache extends Model{
         "description",
         "date_fin",
         "statut",
+        "categorie_id",
     ];
 
     /**

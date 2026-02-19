@@ -18,6 +18,10 @@ $router
     ->post("/users/create", App\Controllers\UserController::class . "::store")
     ->get("/users/terms", App\Controllers\UserController::class . "::terms")
     ->get("/users/privacy", App\Controllers\UserController::class . "::privacy")
+    ->get("/tache/create", App\Controllers\TacheController::class . "::create")
+    ->post("/tache/create", App\Controllers\TacheController::class . "::store")
+    ->get("/tache/update/{id}", \App\Controllers\TacheController::class . "::edit")
+    ->post("/tache/update/{id}", \App\Controllers\TacheController::class . "::update")
 
     ->get("/tache", App\Controllers\TacheController::class ."::index")
     ->get("/tache/show/{id}", App\Controllers\TacheController::class ."::show")
