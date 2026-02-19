@@ -149,7 +149,7 @@
                             <span class="badge badge-done rounded-pill px-2"><?= $tache->statut ?></span>
                             <div class="d-flex gap-2">
                                 <button class="btn-action btn-edit"><i class="bi bi-pencil"></i> Modifier</button>
-                                <button class="btn-action btn-show"><i class="bi bi-eye"></i> Afficher</button>
+                                <a href="/tache/show/<?= $tache->id ?>" class="btn-action btn-show"><i class="bi bi-eye"></i> Afficher</a>
                                 <button class="btn-action btn-delete"><i class="bi bi-trash"></i> Supprimer</button>
                             </div>
                         </div>

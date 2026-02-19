@@ -56,11 +56,10 @@ class Tache extends Model{
     }
 
     public function getNameCategorie(){
-        $categories = $this->categorie();
-        $libelle =  [];
-        foreach ($categories as $categorie){
-            $libelle[] = $categorie ->nom;
-        }
+        $categorie = $this->categorie();
+
+        $libelle = $categorie->nom;
+
         return $libelle;
     }
 }
