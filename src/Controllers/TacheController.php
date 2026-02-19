@@ -20,4 +20,11 @@ class TacheController extends Controller{
             "taches" =>(new Tache()) -> findAll(),
         ]);
     }
+
+    public function show($id){
+        $t = new Tache();
+        $t = $t->find($id);
+
+        View::render("tache.show", ["tache" =>$t]);
+    }
 }

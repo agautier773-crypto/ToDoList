@@ -20,6 +20,7 @@ $router
     ->get("/users/privacy", App\Controllers\UserController::class . "::privacy")
 
     ->get("/tache", App\Controllers\TacheController::class ."::index")
+    ->get("/tache/show/{id}", App\Controllers\TacheController::class ."::show")
 
     ->get("/login", App\Controllers\AuthController::class . "::login")
     ->post("/login", App\Controllers\AuthController::class . "::Attemptlogin")
