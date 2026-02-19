@@ -9,7 +9,7 @@ use App\Core\Wizardvalidator;
 use App\Models\Categorie;
 use App\Models\Tache;
 use App\Models\User;
-
+use App\Core\Traits\HasRelationships;
 use App\Helpers;
 
 class TacheController extends Controller{
@@ -26,5 +26,16 @@ class TacheController extends Controller{
         $t = $t->find($id);
 
         View::render("tache.show", ["tache" =>$t]);
+    }
+
+    public function delete($id):void{
+        $t = (new Tache())->find($id);
+        if(!$t){
+            $this->redirect("/tache");
+        }
+        $t->sync(Categorie::class, [], "categorie_id");
+        $t -> delete($id);
+        Session::setFlash("warning", "Cette tâche a été supprimée");
+        $this->redirect("/tache");
     }
 }

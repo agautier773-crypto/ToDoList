@@ -157,7 +157,7 @@
         <!-- Footer actions -->
         <div class="detail-footer">
             <button class="btn-action btn-edit"><i class="bi bi-pencil"></i> Modifier</button>
-            <button class="btn-action btn-delete"><i class="bi bi-trash"></i> Supprimer</button>
+            <a href="/tache/delete/<?=$tache->id?>" class="btn-action btn-delete"><i class="bi bi-trash"></i> Supprimer</a>
         </div>
 
     </div>

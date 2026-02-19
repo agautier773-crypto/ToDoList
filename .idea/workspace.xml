@@ -10,6 +10,7 @@
       <change beforePath="$PROJECT_DIR$/src/Controllers/TacheController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/TacheController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Models/Tache.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Tache.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/tache/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/tache/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/tache/show.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/tache/show.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
