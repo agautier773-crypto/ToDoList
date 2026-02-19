@@ -54,5 +54,14 @@ class Tache extends Model{
     public function categorie(){
         return $this->belongsTo(Categorie::class, "categorie_id");
     }
+
+    public function getNameCategorie(){
+        $categories = $this->categorie();
+        $libelle =  [];
+        foreach ($categories as $categorie){
+            $libelle[] = $categorie ->nom;
+        }
+        return $libelle;
+    }
 }
 
