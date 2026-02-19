@@ -4,6 +4,12 @@ namespace App\Controllers;
 
 use App\Core\Session;
 use App\Core\View;
+namespace App\Controllers;
+
+use App\Core\Database;
+use App\Core\Session;
+use App\Core\View;
+use App\Core\Controller;
 use App\Core\Wizardvalidator;
 use App\Models\Categorie;
 use App\Models\Tache;
@@ -118,4 +124,21 @@ class TacheController extends \App\Core\Controller{
 
 
 
+use App\Helpers;
+
+class TacheController extends Controller{
+
+    public function index(){
+        View::render("tache.index", [
+            "categorie" =>(new Categorie())->findAll(),
+            "taches" =>(new Tache()) -> findAll(),
+        ]);
+    }
+
+    public function show($id){
+        $t = new Tache();
+        $t = $t->find($id);
+
+        View::render("tache.show", ["tache" =>$t]);
+    }
 }

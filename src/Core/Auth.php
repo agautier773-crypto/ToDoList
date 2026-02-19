@@ -29,7 +29,8 @@ class Auth{
     }
 
     public static function attempt($validated): void{
-        $user = (new User())->findBy("mail", $validated["mail"], true);
+        $user = (new User())->findBy("email", $validated["email"], true);
+        var_dump($user);
         if ($user) {
             if (password_verify($validated["password"], $user->password)) {
                 self::login($user);
@@ -49,7 +50,7 @@ class Auth{
 
     public static function logout(): void{
         unset($_SESSION["user"]);
-        //Session::setFlash("success", "Vous êtes bien deconnecter");
+        Session::setFlash("success", "Vous êtes bien deconnecté");
         header("Location: /login");
         exit;
     }

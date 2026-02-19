@@ -11,6 +11,9 @@
       <change beforePath="$PROJECT_DIR$/bdd.sql" beforeDir="false" afterPath="$PROJECT_DIR$/bdd.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Models/Tache.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Tache.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/TacheController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/TacheController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Models/Tache.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Tache.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/tache/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/tache/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +53,17 @@
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.keymap",
     "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Michel/Desktop/WizardFramework 6&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -64,6 +78,7 @@
       <workItem from="1771417468446" duration="2659000" />
       <workItem from="1771420571941" duration="3535000" />
       <workItem from="1771487951778" duration="14713000" />
+      <workItem from="1771487964748" duration="4184000" />
     </task>
     <servers />
   </component>
