@@ -13,6 +13,7 @@ if (isset($tache->id)){
     $actionUri = "/tache/create";
     $titreBtn = "Créer la tâche";
 }
+//var_dump(escape($tache->titre));
 //    var_dump($action,$titre,$actionUri,$titreBtn);
 //    var_dump($user->username);
 //    var_dump($action === "create");
@@ -126,13 +127,13 @@ if (isset($tache->id)){
             <!-- Titre -->
             <div class="mb-3">
                 <label class="form-label">Titre <span style="color:var(--cyan)">*</span></label>
-                <input type="text" name="titre" class="form-control" placeholder="Ex : Payer la facture EDF" value="<?= $tache->titre?>" />
+                <input type="text" name="titre" class="form-control" placeholder="Ex : Payer la facture EDF" value="<?= escape($tache->titre)?>" />
             </div>
 
             <!-- Description -->
             <div class="mb-3">
                 <label class="form-label">Description</label>
-                <textarea class="form-control" name="description" rows="3" placeholder="Ajoutez des détails sur cette tâche…" value="<?= $tache->description?>"></textarea>
+                <textarea class="form-control" name="description" rows="3" placeholder="Ajoutez des détails sur cette tâche…"><?= escape($tache->description)?></textarea>
             </div>
 
             <hr class="form-divider" />
@@ -141,7 +142,7 @@ if (isset($tache->id)){
             <div class="row g-3 mb-3">
                 <div class="col-6">
                     <label class="form-label">Date de fin</label>
-                    <input type="date" name="date_fin" class="form-control" value="<?= $tache->date_fin?>"/>
+                    <input type="date" name="date_fin" class="form-control" value="<?= escape($tache->date_fin)?>"/>
                 </div>
             </div>
 
@@ -176,7 +177,7 @@ if (isset($tache->id)){
             <?php foreach ($categories as $categorie): ?>
                 <option value="<?= $categorie->id ?>"
                     <?= ($tache->categorie_id == $categorie->id) ? 'selected' : '' ?>>
-                    <?= htmlspecialchars($categorie->nom) ?>
+                    <?= escape($categorie->nom) ?>
 
                 </option>
             <?php endforeach; ?>

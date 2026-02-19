@@ -82,6 +82,8 @@ class TacheController extends Controller{
      */
     public function update(mixed $id): void
     {
+//        var_dump($_POST);
+//        die;
         $id=intval($id);
         $tache = (new Tache())->find($id);
 
@@ -95,11 +97,12 @@ class TacheController extends Controller{
         ]);
         if ($validator->fails()){
             # erreurs
+//            $id = (new Tache())->findBy("titre")
             foreach ($validator->errors() as $error){
                 Session::setFlash("danger", $error);
             }
             Session::set("old", $_POST);
-            header("Location: /tache/update");
+            header("Location: /tache/update/".$tache->id);
             exit;
         }
         $validated = $validator->validated();
