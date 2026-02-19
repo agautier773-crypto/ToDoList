@@ -1,4 +1,7 @@
 <?php
+
+use App\Helpers\Csrf;
+
 if (isset($tache->id)){
     $action = "update";
     $titre = "Modifier la ";
@@ -104,17 +107,6 @@ if (isset($tache->id)){
 </style>
 
 <body>
-
-<!-- NAV -->
-<nav class="navbar">
-    <div class="container d-flex justify-content-between align-items-center">
-        <a class="navbar-brand" href="#"><i class="bi bi-check2-square me-2"></i>ToDoList</a>
-        <div class="d-flex gap-2">
-            <a href="#" class="btn btn-outline-c btn-sm px-3">Se connecter</a>
-            <a href="/users/create" class="btn btn-violet btn-sm px-3">S'inscrire</a>
-        </div>
-    </div>
-</nav>
 
 <!-- CONTENU -->
 <div class="container py-5" style="max-width: 620px;">

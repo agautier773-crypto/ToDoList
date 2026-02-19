@@ -6,8 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="31d71b7a-b532-49c1-a35d-e0f6f5b0756c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controllers/TacheController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/TacheController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/tache/form.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/tache/form.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/tache/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/tache/index.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

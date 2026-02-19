@@ -104,7 +104,7 @@
             <h1 class="fw-bold mb-1" style="font-size:1.8rem;">Mes tâches</h1>
             <p style="color:rgba(200,197,255,.5);font-size:.9rem;margin:0;"><?= count($tache) ?> tâches au total</p>
         </div>
-        <a href="#" class="btn btn-violet px-4">
+        <a href="/tache/create" class="btn btn-violet px-4">
             <i class="bi bi-plus-circle me-2"></i>Nouvelle tâche
         </a>
     </div>
