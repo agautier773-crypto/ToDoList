@@ -1,0 +1,76 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"3a372b10-31ce-4580-993d-1f614e89d01a\" name=\"Changes\" comment=\"\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/Controllers/TacheController.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/Controllers/TacheController.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/views/tache/form.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/views/tache/form.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/views/tache/index.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/views/tache/index.php\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/views/tache/show.php\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/views/tache/show.php\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ComposerSettings\">\r\n    <execution />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"eze\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"39ps3ujQAXNUjXaQwWkLJfV4QeV\" />\r\n  <component name=\"ProjectLevelVcsManager\">\r\n    <ConfirmationsSetting value=\"1\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  &lt;component name=&quot;PropertiesComponent&quot;&gt;{\r\n  &amp;quot;keyToString&amp;quot;: {\r\n    &amp;quot;RunOnceActivity.OpenProjectViewOnStart&amp;quot;: &amp;quot;true&amp;quot;,\r\n    &amp;quot;RunOnceActivity.ShowReadmeOnStart&amp;quot;: &amp;quot;true&amp;quot;,\r\n    &amp;quot;WebServerToolWindowFactoryState&amp;quot;: &amp;quot;false&amp;quot;,\r\n    &amp;quot;last_opened_file_path&amp;quot;: &amp;quot;C:/Users/Michel/Desktop/WizardFramework 6&amp;quot;,\r\n    &amp;quot;node.js.detected.package.eslint&amp;quot;: &amp;quot;true&amp;quot;,\r\n    &amp;quot;node.js.selected.package.eslint&amp;quot;: &amp;quot;(autodetect)&amp;quot;,\r\n    &amp;quot;node.js.selected.package.tslint&amp;quot;: &amp;quot;(autodetect)&amp;quot;,\r\n    &amp;quot;nodejs_package_manager_path&amp;quot;: &amp;quot;npm&amp;quot;,\r\n    &amp;quot;vue.rearranger.settings.migration&amp;quot;: &amp;quot;true&amp;quot;\r\n  }\r\n}</component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"3a372b10-31ce-4580-993d-1f614e89d01a\" name=\"Changes\" comment=\"\" />\r\n      <created>1771404150799</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1771404150799</updated>\r\n      <workItem from=\"1771404151866\" duration=\"465000\" />\r\n      <workItem from=\"1771417468446\" duration=\"2659000\" />\r\n      <workItem from=\"1771420571941\" duration=\"3535000\" />\r\n      <workItem from=\"1771487951778\" duration=\"14713000\" />\r\n      <workItem from=\"1771487964748\" duration=\"4184000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n</project>
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 0325ae58f6de2d970b00e7a491af19c9166d7e37)
++++ b/.idea/workspace.xml	(date 1771511974042)
+@@ -5,11 +5,8 @@
+   </component>
+   <component name="ChangeListManager">
+     <list default="true" id="3a372b10-31ce-4580-993d-1f614e89d01a" name="Changes" comment="">
++      <change beforePath="$PROJECT_DIR$/.idea/ToDoList.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/ToDoList.iml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/Controllers/TacheController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/TacheController.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/views/tache/form.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/tache/form.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/views/tache/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/tache/index.php" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/views/tache/show.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/tache/show.php" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -27,9 +24,31 @@
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
++  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
++  "history": [
++    {
++      "state": "OPEN",
++      "assignee": "Jaeemiel"
++    }
++  ],
++  "lastFilter": {
++    "state": "OPEN",
++    "assignee": "Jaeemiel"
++  }
++}]]></component>
++  <component name="GithubPullRequestsUISettings"><![CDATA[{
++  "selectedUrlAndAccountId": {
++    "url": "https://github.com/agautier773-crypto/ToDoList.git",
++    "accountId": "27f48012-5413-4d63-a139-5615e8b4e783"
++  }
++}]]></component>
+   <component name="MarkdownSettingsMigration">
+     <option name="stateVersion" value="1" />
+   </component>
++  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="$PROJECT_DIR$/../../bin/php/php8.4.0/php.exe" />
++  <component name="ProjectColorInfo"><![CDATA[{
++  "associatedIndex": 4
++}]]></component>
+   <component name="ProjectId" id="39ps3ujQAXNUjXaQwWkLJfV4QeV" />
+   <component name="ProjectLevelVcsManager">
+     <ConfirmationsSetting value="1" id="Add" />
+@@ -62,6 +81,14 @@
+     &amp;quot;vue.rearranger.settings.migration&amp;quot;: &amp;quot;true&amp;quot;
+   }
+ }</component>
++  <component name="SharedIndexes">
++    <attachedChunks>
++      <set>
++        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-PS-253.30387.85" />
++        <option value="bundled-php-predefined-a98d8de5180a-0e0d91225499-com.jetbrains.php.sharedIndexes-PS-253.30387.85" />
++      </set>
++    </attachedChunks>
++  </component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+     <task active="true" id="Default" summary="Default task">
+@@ -75,6 +102,7 @@
+       <workItem from="1771420571941" duration="3535000" />
+       <workItem from="1771487951778" duration="14713000" />
+       <workItem from="1771487964748" duration="4184000" />
++      <workItem from="1771510972074" duration="993000" />
+     </task>
+     <servers />
+   </component>

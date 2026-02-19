@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DdlMappings">
+    <mapping uuid="c92d796e-463f-4524-b184-1ff589e42b40" name="wizardframework@localhost Mapping">
+      <data-sources db="416cfa86-9e09-435a-b295-2be9791b9499" />
+      <scope>
+        <node kind="schema" qname="wizardframework" />
+      </scope>
+    </mapping>
+  </component>
+</project>
