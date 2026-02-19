@@ -25,6 +25,7 @@ $router
 
     ->get("/tache", App\Controllers\TacheController::class ."::index")
     ->get("/tache/show/{id}", App\Controllers\TacheController::class ."::show")
+    ->get("/tache/delete/{id}", App\Controllers\TacheController::class ."::delete")
 
     ->get("/login", App\Controllers\AuthController::class . "::login")
     ->post("/login", App\Controllers\AuthController::class . "::Attemptlogin")

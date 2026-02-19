@@ -150,7 +150,7 @@
                             <div class="d-flex gap-2">
                                 <button class="btn-action btn-edit"><i class="bi bi-pencil"></i> Modifier</button>
                                 <a href="/tache/show/<?= $tache->id ?>" class="btn-action btn-show"><i class="bi bi-eye"></i> Afficher</a>
-                                <button class="btn-action btn-delete"><i class="bi bi-trash"></i> Supprimer</button>
+                                <a href="/tache/delete/<?=$tache->id?>" class="btn-action btn-delete"><i class="bi bi-trash"></i> Supprimer</a>
                             </div>
                         </div>
                     <?php endforeach; ?>
