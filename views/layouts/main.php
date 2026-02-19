@@ -10,6 +10,40 @@ use App\Core\Auth;
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title><?= $titre ?? "ToDoList" ?></title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <style>
+            :root {
+                --violet: #7048E9;
+                --cyan:   #1AF3D9;
+                --sky:    #7EB5D8;
+                --blue:   #406DCF;
+            }
+            body { background: #0E0C1E; color: #E8E6FF; font-family: 'Segoe UI', sans-serif; }
+
+            /* NAV */
+            .navbar { background: #16132E; border-bottom: 1px solid rgba(255,255,255,0.08); }
+            .navbar-brand { color: var(--cyan) !important; font-weight: 700; font-size: 1.3rem; }
+            .btn-violet  { background: var(--violet) !important; color: #fff !important; border: none; }
+            .btn-violet:hover  { background: #5a38cc !important; color: #fff !important; }
+            .btn-outline-c { color: var(--cyan) !important; border: 1px solid var(--cyan) !important; background: transparent !important; }
+            .btn-outline-c:hover { background: var(--cyan) !important; color: #0E0C1E !important; }
+</style>
+
+    </head>
+
+    <!-- NAV -->
+    <nav class="navbar">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a class="navbar-brand" href="/"/><i class="bi bi-check2-square me-2"></i>ToDoList</a>
+            <div class="d-flex gap-2">
+                <?php if (\App\Core\Auth::check()): ?>
+                <a href="/logout" class="btn btn-outline-c btn-sm px-3">Se déconnecter</a>
+                <?php else: ?>
+                <a href="/login" class="btn btn-outline-c btn-sm px-3">Se connecter</a>
+                <a href="/users/create" class="btn btn-violet btn-sm px-3">S'inscrire</a>
+                <?php endif; ?>
+            </div>
+        </div>
+    </nav>
     <?php
     if ($messages){
         foreach ($messages as $type => $message){

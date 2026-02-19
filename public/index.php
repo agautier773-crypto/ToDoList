@@ -21,6 +21,9 @@ $router
 
     ->get("/tache", App\Controllers\TacheController::class ."::index")
 
+    ->get("/login", App\Controllers\AuthController::class . "::login")
+    ->post("/login", App\Controllers\AuthController::class . "::Attemptlogin")
+    ->get("/logout", App\Controllers\AuthController::class . "::logout")
 
 ->run();
 
