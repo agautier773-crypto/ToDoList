@@ -123,7 +123,7 @@ if (isset($tache->id)){
     <!-- Formulaire -->
     <div class="form-card">
         <form action="<?= $actionUri ?>" method="POST">
-
+            <?= Csrf::field()?>
             <!-- Titre -->
             <div class="mb-3">
                 <label class="form-label">Titre <span style="color:var(--cyan)">*</span></label>

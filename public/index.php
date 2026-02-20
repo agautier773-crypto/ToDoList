@@ -10,14 +10,15 @@ $router = new App\Core\Router();
 
 $router -> addMiddleware([
     "auth" => App\Core\Middlewares\AuthMiddlewares::class,
+    "csrf" => App\Core\Middlewares\CsrfMiddlewares::class,
 
     // ajout des middlewares
 ]);
 $router
    // ajout des routes
     ->get("/", App\Controllers\HomepageController::class ."::home")
-    ->get("/users/create", App\Controllers\UserController::class . "::create")-> middleware("auth")
-    ->post("/users/create", App\Controllers\UserController::class . "::store")-> middleware("auth")
+    ->get("/users/create", App\Controllers\UserController::class . "::create")
+    ->post("/users/create", App\Controllers\UserController::class . "::store")
     ->get("/users/terms", App\Controllers\UserController::class . "::terms")
     ->get("/users/privacy", App\Controllers\UserController::class . "::privacy")
 

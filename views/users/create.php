@@ -1,3 +1,8 @@
+<?php
+
+use App\Helpers\Csrf;
+
+?>
 <!-- ── Dépendances (à inclure une seule fois dans la page hôte) ── -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
@@ -159,6 +164,7 @@
 
             <!-- ── Formulaire ── -->
             <form action="/users/create" method="POST">
+                <?= Csrf::field(); ?>
 
                 <!-- Prénom + Nom -->
                 <div class="row g-3 mb-3">
