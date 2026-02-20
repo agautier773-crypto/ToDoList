@@ -18,6 +18,8 @@ $router
     ->post("/users/create", App\Controllers\UserController::class . "::store")
     ->get("/users/terms", App\Controllers\UserController::class . "::terms")
     ->get("/users/privacy", App\Controllers\UserController::class . "::privacy")
+    ->get("/categorie", App\Controllers\CategorieController::class . "::index")
+    ->get("/categorie/delete/{id}", App\Controllers\CategorieController::class . "::delete")
 
 
 ->run();

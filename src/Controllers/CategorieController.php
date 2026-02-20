@@ -16,8 +16,9 @@ class CategorieController extends Controller
      */
     public function index(): void
     {
-        $categories = Categorie::all();
-        View::render("categories.index", compact("categories"));
+        View::render("categories.index",[
+            "categories" => (new Categorie())->findAll(),
+        ]);
     }
 
     /**
@@ -25,7 +26,9 @@ class CategorieController extends Controller
      */
     public function create(): void
     {
-        View::render("categories.create");
+        View::render("categories.form",[
+            "categorie" => new Categorie(),
+        ]);
     }
 
     /**
@@ -106,24 +109,11 @@ class CategorieController extends Controller
     /**
      * Supprime une catégorie
      */
-    public function destroy(int $id): void
-    {
-        $categorie = Categorie::find($id);
-
-        if (!$categorie) {
-            Session::setFlash("danger", "Catégorie introuvable.");
-            $this->redirect("/categories");
-        }
-
-        // Vérification : des tâches sont liées à cette catégorie ?
-        if (!empty($categorie->taches())) {
-            Session::setFlash("danger", "Impossible de supprimer : des tâches sont liées à cette catégorie.");
-            $this->redirect("/categories");
-        }
-
-        $categorie->delete();
+    public function delete(int $id): void{
+        $c = (new Categorie())->find($id);
+        $c->delete();
 
         Session::setFlash("success", "Catégorie supprimée avec succès !");
-        $this->redirect("/categories");
+        $this->redirect("/categorie");
     }
 }
