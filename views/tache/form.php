@@ -4,12 +4,12 @@ use App\Helpers\Csrf;
 
 if (isset($tache->id)){
     $action = "update";
-    $titre = "Modifier la ";
+    $titres = "Modifier la ";
     $actionUri = "/tache/update/".$tache->id;
     $titreBtn = "Modifier";
 }else{
     $action = "create";
-    $titre = "Créer une ";
+    $titres = "Créer une ";
     $actionUri = "/tache/create";
     $titreBtn = "Créer la tâche";
 }
@@ -111,7 +111,7 @@ if (isset($tache->id)){
         <a href="/tache" class="text-decoration-none d-inline-flex align-items-center gap-2 mb-3" style="color:rgba(200,197,255,.5);font-size:.85rem;">
             <i class="bi bi-arrow-left"></i> Retour à mes tâches
         </a>
-        <h1 class="fw-bold mb-1" style="font-size:1.8rem;"><?=$titre?> tâche</h1>
+        <h1 class="fw-bold mb-1" style="font-size:1.8rem;"><?=$titres?> tâche</h1>
         <p style="color:rgba(200,197,255,.5);font-size:.9rem;">Remplissez les informations ci-dessous pour créer votre tâche.</p>
     </div>
 

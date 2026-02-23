@@ -122,7 +122,7 @@ class TacheController extends Controller{
             "categories" => (new Categorie())->findAll(),
             // Pour avoir que les tâches lié à l'utilisateur connecté
             "tache" => (new User())->find(Auth::id())->taches(),
-            "titre" => "Ajouter nouvelle tâche",
+            "titre" => "Liste des tâches",
         ]);
     }
 
@@ -130,7 +130,10 @@ class TacheController extends Controller{
         $t = new Tache();
         $t = $t->find($id);
 
-        View::render("tache.show", ["tache" =>$t]);
+        View::render("tache.show", [
+            "tache" =>$t,
+            "titre" => "Mes tâches",
+        ]);
     }
 
     public function delete($id):void{

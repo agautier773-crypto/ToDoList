@@ -7,10 +7,7 @@
     <list default="true" id="4d88f403-7304-484f-8f94-26580cb25907" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controllers/TacheController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/TacheController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Core/View.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Core/View.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/HomePage/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/HomePage/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layouts/main.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/main.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/tache/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/tache/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/tache/form.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/tache/form.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,11 +23,11 @@
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "node.js.selected.package.tslint": "(autodetect)"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;
   }
-}]]></component>
+}</component>
   <component name="TaskManager">
     <servers />
   </component>
