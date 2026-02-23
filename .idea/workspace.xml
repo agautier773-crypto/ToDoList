@@ -31,6 +31,10 @@
       <change beforePath="$PROJECT_DIR$/views/users/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/users/create.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/users/privacy.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/users/privacy.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/users/terms.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/users/terms.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controllers/CategorieController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controllers/CategorieController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Models/Categorie.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Models/Categorie.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/tache/form.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/tache/form.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/users/create.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/users/create.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +47,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="eze" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -70,8 +74,20 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
     "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -83,9 +99,11 @@
       <workItem from="1771404151866" duration="465000" />
       <workItem from="1771417468446" duration="2659000" />
       <workItem from="1771420571941" duration="3535000" />
+      <workItem from="1771488241222" duration="4778000" />
       <workItem from="1771487951778" duration="14713000" />
       <workItem from="1771487964748" duration="4184000" />
       <workItem from="1771681141030" duration="18634000" />
+      <workItem from="1771573735227" duration="1205000" />
     </task>
     <servers />
   </component>

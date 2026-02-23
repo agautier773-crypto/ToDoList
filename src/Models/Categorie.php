@@ -1,17 +1,16 @@
 <?php
-
 namespace App\Models;
 
 use App\Core\Model;
 use App\Core\Traits\HasRelationships;
-
 
 /**
  * Représente une catégorie d'une tâche.
  *
  * @package App\Core\Model
  */
-class Categorie extends Model{
+class Categorie extends Model
+{
     use HasRelationships;
 
     /**
@@ -25,7 +24,6 @@ class Categorie extends Model{
      * @var string
      */
     public string $nom = "";
-
 
     /**
      * Liste des champs utilisés par le trait IsFillable
@@ -42,7 +40,8 @@ class Categorie extends Model{
      *
      * @return Tache[]
      */
-    public function taches(){
+    public function taches(): array
+    {
         return $this->hasMany(Tache::class, "categorie_id");
     }
 }
