@@ -117,9 +117,7 @@
         </div>
 
         <div class="d-flex gap-2">
-            <a class="btn-action btn-edit"><i class="bi bi-pencil"></i> Modifier</a>
-            <a class="btn-action btn-show"><i class="bi bi-eye"></i> Afficher</a>
-            <a class="tn-action btn-delete"><i class="bi bi-trash"></i> Supprimer</a>
+            <a <a href="/categorie/delete/<?=$cat->id?>" class="btn-action btn-delete"><i class="bi bi-trash"></i> Supprimer</a>
         </div>
     </div>
 <?php endforeach; ?>

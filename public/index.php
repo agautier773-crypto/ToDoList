@@ -23,6 +23,9 @@ $router
     ->get("/users/privacy", App\Controllers\UserController::class . "::privacy")
     ->get("/categorie", App\Controllers\CategorieController::class . "::index")
     ->get("/categorie/delete/{id}", App\Controllers\CategorieController::class . "::delete")
+    ->get("/categorie/create", App\Controllers\CategorieController::class . "::create")
+    ->post("/categorie/create", App\Controllers\CategorieController::class . "::store")
+
 
     ->get("/tache/create", App\Controllers\TacheController::class . "::create")-> middleware("auth")
     ->post("/tache/create", App\Controllers\TacheController::class . "::store")-> middleware("auth")
