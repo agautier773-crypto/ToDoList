@@ -44,7 +44,7 @@ class Auth{
     public static function login(User $user): void{
         Session::setUser($user->id);
         Session::setFlash("success", "Connexion réussie");
-        header("location: /");
+        header("location: /tache");
         exit;
     }
 
