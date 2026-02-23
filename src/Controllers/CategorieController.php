@@ -36,6 +36,7 @@ class CategorieController extends Controller
      */
     public function store(): void
     {
+        var_dump($_POST);
         $validator = new WizardValidator($_POST, [
             "nom" => "required|min:2|max:100",
         ]);
@@ -45,7 +46,9 @@ class CategorieController extends Controller
                 Session::setFlash("danger", $error);
             }
             Session::set("old", $_POST);
-            $this->redirect("/categories/create");
+
+            header("Location: /categorie/create");
+            exit;
         }
 
         $validated = $validator->validated();
@@ -55,7 +58,7 @@ class CategorieController extends Controller
         $categorie->save();
 
         Session::setFlash("success", "Catégorie créée avec succès !");
-        $this->redirect("/categories");
+        $this->redirect("/categorie");
     }
 
     /**
@@ -73,45 +76,9 @@ class CategorieController extends Controller
         View::render("categories.edit", compact("categorie"));
     }
 
-    /**
-     * Met à jour une catégorie
-     */
-    public function update(int $id): void
-    {
-        $categorie = Categorie::find($id);
-
-        if (!$categorie) {
-            Session::setFlash("danger", "Catégorie introuvable.");
-            $this->redirect("/categories");
-        }
-
-        $validator = new WizardValidator($_POST, [
-            "nom" => "required|min:2|max:100",
-        ]);
-
-        if ($validator->fails()) {
-            foreach ($validator->errors() as $error) {
-                Session::setFlash("danger", $error);
-            }
-            Session::set("old", $_POST);
-            $this->redirect("/categories/{$id}/edit");
-        }
-
-        $validated = $validator->validated();
-
-        $categorie->fill($validated);
-        $categorie->save();
-
-        Session::setFlash("success", "Catégorie mise à jour avec succès !");
-        $this->redirect("/categories");
-    }
-
-    /**
-     * Supprime une catégorie
-     */
     public function delete(int $id): void{
         $c = (new Categorie())->find($id);
-        $c->delete();
+        $c->delete($id);
 
         Session::setFlash("success", "Catégorie supprimée avec succès !");
         $this->redirect("/categorie");

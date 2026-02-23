@@ -41,6 +41,7 @@ use App\Core\Auth;
             <div class="d-flex gap-2">
                 <?php if (Auth::check()): ?>
                     <a href="/tache" class="btn btn-outline-c btn-sm px-3"> Liste des tâches</a>
+                    <a href="/categorie" class="btn btn-outline-c btn-sm px-3"> Liste des Catégories</a>
                     <a href="/logout" class="btn btn-outline-c btn-sm px-3">Se déconnecter</a>
                 <?php else: ?>
                     <a href="/login" class="btn btn-outline-c btn-sm px-3">Se connecter</a>
