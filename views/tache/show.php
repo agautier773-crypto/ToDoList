@@ -95,7 +95,7 @@
 <div class="container py-5" style="max-width: 620px;">
 
     <!-- Retour -->
-    <a href="#" class="text-decoration-none d-inline-flex align-items-center gap-2 mb-4" style="color:rgba(200,197,255,.5);font-size:.85rem;">
+    <a href="/tache" class="text-decoration-none d-inline-flex align-items-center gap-2 mb-4" style="color:rgba(200,197,255,.5);font-size:.85rem;">
         <i class="bi bi-arrow-left"></i> Retour à mes tâches
     </a>
 

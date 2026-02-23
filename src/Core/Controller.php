@@ -1,7 +1,7 @@
 <?php
 namespace App\Core;
 /**
- * classe de base pour tous les controllers de l'application
+ * Classe de base pour tous les controllers de l'application
  */
 class Controller{
 
@@ -14,22 +14,22 @@ class Controller{
     public function __construct(){
         $this->view_path = dirname(__DIR__) . "/Views";
     }
-
-    /**
-     * regarde si le fichier de vue existe par rapport au chemin déclaré
-     * @param string $view
-     * @param array $data
-     * @return void
-     */
-    public function render(string $view, array $data = []){
-        extract($data);
-        $view_file = $this->view_path . "/" . $view .".php";
-        if (file_exists($view_file)) {
-            require $view_file;
-        }else{
-            echo "la vue n'existe pas! ";
-        }
-    }
+// Plus besoin car on utilise celui de view
+//    /**
+//     * Regarde si le fichier de vue existe par rapport au chemin déclaré
+//     * @param string $view
+//     * @param array $data
+//     * @return void
+//     */
+//    public function render(string $view, array $data = []){
+//        extract($data);
+//        $view_file = $this->view_path . "/" . $view .".php";
+//        if (file_exists($view_file)) {
+//            require $view_file;
+//        }else{
+//            echo "la vue n'existe pas! ";
+//        }
+//    }
 
     /**
      * Redirige l'utilisateur vers une URL spécifique

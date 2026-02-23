@@ -3,13 +3,20 @@
 namespace App\Controllers;
 
 use App\Core\Controller;
-use App\Core\Session;
-use App\Core\View;
-use App\Core\Wizardvalidator;
+
 use App\Models\Categorie;
 use App\Models\Tache;
+use App\Models\User;
+use App\Core\View;
+use App\Core\Auth;
+use App\Core\Session;
+use App\Core\Wizardvalidator;
 
 
+/**
+ * Contrôleur gérant les tâches.
+ * Fournit les fonctionnalités CRUD communes
+ */
 class TacheController extends Controller{
     public function create(){
         $tache = new Tache();
@@ -26,8 +33,9 @@ class TacheController extends Controller{
             "titre" => "required|min:5|max:200",
             "description" => "nullable|required|min:2|max:1000",
             "date_fin" => "required",
-            "categorie"=> "required",
+            "categorie_id"=> "required",
         ]);
+
         if ($validator->fails()){
             # erreurs
             foreach ($validator->errors() as $error){
@@ -37,18 +45,17 @@ class TacheController extends Controller{
             header("Location: /tache/create");
             exit;
         }
+
         $validated = $validator->validated();
         $validated["statut"]="à faire";
         $validated["categorie_id"] = $validated["categorie"];
         unset($validated["categorie"]);
-//        var_dump($validated);
-
         $tache = new Tache();
         $tache->fill($validated);
-//        var_dump($tache);
-//        die;
 
         $tache->save();
+        $tache->sync(User::class, [Auth::id()], "tache_user");
+
         Session::setFlash("success", "Tache bien créer !");
         $this->redirect("/tache");
     }
@@ -82,8 +89,6 @@ class TacheController extends Controller{
      */
     public function update(mixed $id): void
     {
-//        var_dump($_POST);
-//        die;
         $id=intval($id);
         $tache = (new Tache())->find($id);
 
@@ -93,11 +98,10 @@ class TacheController extends Controller{
             "description" => "nullable|required|min:2|max:1000",
             "date_fin" => "required",
             "statut" => "required",
-            "categorie" => "required",
+            "categorie_id" => "required",
         ]);
         if ($validator->fails()){
             # erreurs
-//            $id = (new Tache())->findBy("titre")
             foreach ($validator->errors() as $error){
                 Session::setFlash("danger", $error);
             }
@@ -106,11 +110,7 @@ class TacheController extends Controller{
             exit;
         }
         $validated = $validator->validated();
-        $validated["categorie_id"] = $validated["categorie"];
-        unset($validated["categorie"]);
         $tache->fill($validated);
-//        var_dump($tache);
-//        die;
         $tache->save();
 
         $this->redirect("/tache");
@@ -118,8 +118,9 @@ class TacheController extends Controller{
     }
     public function index(){
         View::render("tache.index", [
-            "categories" =>(new Categorie())->findAll(),
-            "tache" =>(new Tache()) -> findAll(),
+            "categories" => (new Categorie())->findAll(),
+            // Pour avoir que les tâches lié à l'utilisateur connecté
+            "tache" => (new User())->find(Auth::id())->taches(),
         ]);
     }
 
@@ -135,7 +136,7 @@ class TacheController extends Controller{
         if(!$t){
             $this->redirect("/tache");
         }
-        $t->sync(Categorie::class, [], "categorie_id");
+        $t->sync(User::class, [], "tache_user");
         $t -> delete($id);
         Session::setFlash("warning", "Cette tâche a été supprimée");
         $this->redirect("/tache");

@@ -33,7 +33,7 @@ $router
     ->get("/tache/delete/{id}", App\Controllers\TacheController::class ."::delete")-> middleware("auth")
 
     ->get("/login", App\Controllers\AuthController::class . "::login")
-    ->post("/login", App\Controllers\AuthController::class . "::Attemptlogin")
+    ->post("/login", App\Controllers\AuthController::class . "::attemptlogin")
     ->get("/logout", App\Controllers\AuthController::class . "::logout")
 
 ->run();

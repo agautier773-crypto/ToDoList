@@ -3,7 +3,7 @@
 namespace  App\Core\Traits;
 
 /**
- * permet de manipuler les données avant les requetes sql
+ * Permet de manipuler les données avant les requetes sql
  * Extrait uniquement les propriétés de l'objet qui sont définies dans le tableau $fillable, pour éviter l'assignation en masse de champs sensibles.
  */
 trait IsFillable {
@@ -19,8 +19,8 @@ trait IsFillable {
     }
 
     /**
-     * Génère une chaine de placeholders de valeur préparées pour les requêtes
-     * Soit des placeholders pour INSERT
+     * Génère une chaine de placeholders de valeur préparée pour les requêtes
+     * Soit des placeholders pour INSERT,
      * Soit des assignations pour UPDATE
      *
      * @param bool $isUpdate

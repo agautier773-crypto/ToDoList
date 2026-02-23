@@ -13,11 +13,6 @@ if (isset($tache->id)){
     $actionUri = "/tache/create";
     $titreBtn = "Créer la tâche";
 }
-//var_dump(escape($tache->titre));
-//    var_dump($action,$titre,$actionUri,$titreBtn);
-//    var_dump($user->username);
-//    var_dump($action === "create");
-//    var_dump("I'm here");
 ?>
 <style>
     :root {
@@ -113,7 +108,7 @@ if (isset($tache->id)){
 
     <!-- En-tête -->
     <div class="mb-4">
-        <a href="#" class="text-decoration-none d-inline-flex align-items-center gap-2 mb-3" style="color:rgba(200,197,255,.5);font-size:.85rem;">
+        <a href="/tache" class="text-decoration-none d-inline-flex align-items-center gap-2 mb-3" style="color:rgba(200,197,255,.5);font-size:.85rem;">
             <i class="bi bi-arrow-left"></i> Retour à mes tâches
         </a>
         <h1 class="fw-bold mb-1" style="font-size:1.8rem;"><?=$titre?> tâche</h1>
@@ -133,7 +128,9 @@ if (isset($tache->id)){
             <!-- Description -->
             <div class="mb-3">
                 <label class="form-label">Description</label>
-                <textarea class="form-control" name="description" rows="3" placeholder="Ajoutez des détails sur cette tâche…"><?= escape($tache->description)?></textarea>
+                <textarea class="form-control" name="description" rows="3" placeholder="Ajoutez des détails sur cette tâche…">
+                    <?= escape($tache->description)?>
+                </textarea>
             </div>
 
             <hr class="form-divider" />
@@ -152,52 +149,44 @@ if (isset($tache->id)){
             <div class="mb-3">
                 <label class="form-label">Statut</label>
                 <?php if ($action == 'create'): ?>
-                <div class="statut-display">
-                    <div class="statut-dot"></div>
-                    <span>Défini automatiquement à la création</span>
-                    <span class="statut-badge">⭕ Pas commencé</span>
-                </div>
-                <div class="info-text"><i class="bi bi-info-circle me-1"></i>Le statut pourra être modifié après la création de la tâche.</div>
-            <?php else: ?>
-
-            <select name="statut" class="form-select">
-
-                <option value="à faire"> Pas commencé </option>
-                <option value="en cours"> En cours </option>
-                <option value="terminé"> Terminé </option>
-            </select>
+                    <div class="statut-display">
+                        <div class="statut-dot"></div>
+                        <span>Défini automatiquement à la création</span>
+                        <span class="statut-badge">⭕ Pas commencé</span>
+                    </div>
+                    <div class="info-text"><i class="bi bi-info-circle me-1"></i>Le statut pourra être modifié après la création de la tâche.</div>
+                <?php else: ?>
+                    <select name="statut" class="form-select">
+                        <option value="à faire"> Pas commencé </option>
+                        <option value="en cours"> En cours </option>
+                        <option value="terminé"> Terminé </option>
+                    </select>
                 <?php endif;?>
+            </div>
+
+            <!-- Catégorie -->
+            <div class="mb-4">
+                <label class="form-label">Catégorie <span style="color:var(--cyan)">*</span></label>
+                <select name="categorie_id" class="form-select">
+                    <option disabled <?= !$tache->categorie_id ? 'selected' : '' ?>> Choisir une catégorie </option>
+                    <?php foreach ($categories as $categorie): ?>
+                        <option value="<?= $categorie->id ?>"
+                            <?= ($tache->categorie_id == $categorie->id) ? 'selected' : '' ?>>
+                            <?= escape($categorie->nom) ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+
+            <!-- Boutons -->
+            <div class="d-flex gap-3">
+                <button type="submit" class="btn btn-violet px-4 flex-grow-1">
+                    <i class="bi bi-plus-circle me-2"></i><?= $titreBtn ?>
+                </button>
+                <a href="/tache" class="btn btn-outline-c px-4">Annuler</a>
+            </div>
+
+        </form>
     </div>
-
-    <!-- Catégorie -->
-    <div class="mb-4">
-        <label class="form-label">Catégorie <span style="color:var(--cyan)">*</span></label>
-        <select name="categorie" class="form-select">
-            <option disabled <?= !$tache->categorie_id ? 'selected' : '' ?>> Choisir une catégorie </option>
-            <?php foreach ($categories as $categorie): ?>
-                <option value="<?= $categorie->id ?>"
-                    <?= ($tache->categorie_id == $categorie->id) ? 'selected' : '' ?>>
-                    <?= escape($categorie->nom) ?>
-
-                </option>
-            <?php endforeach; ?>
-            <!--                    <option value="" disabled selected>Choisir une catégorie…</option>-->
-            <!--                    <option value="eco">💰 Économique</option>-->
-            <!--                    <option value="home">🏠 Ménagère</option>-->
-            <!--                    <option value="work">💼 Professionnelle</option>-->
-            <!--                    <option value="perso">🌱 Personnelle</option>-->
-        </select>
-    </div>
-
-    <!-- Boutons -->
-    <div class="d-flex gap-3">
-        <button type="submit" class="btn btn-violet px-4 flex-grow-1">
-            <i class="bi bi-plus-circle me-2"></i><?= $titreBtn ?>
-        </button>
-        <a href="/tache" class="btn btn-outline-c px-4">Annuler</a>
-    </div>
-
-    </form>
-</div>
 </div>
 

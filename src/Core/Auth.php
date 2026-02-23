@@ -1,10 +1,8 @@
 <?php
 
-
 namespace App\Core;
 
 use App\Models\User;
-use App\Core\Session;
 
 class Auth{
     public static ?User $user = null;

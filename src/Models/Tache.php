@@ -13,12 +13,40 @@ use App\Core\Traits\HasRelationships;
 class Tache extends Model{
     use HasRelationships;
 
-
+    /**
+     * Clé primaire
+     * @var int
+     */
     public int $id;
+
+    /**
+     * Titre de la tâche
+     * @var string
+     */
     public string $titre = "";
+
+    /**
+     * Description de la tâche
+     * @var string
+     */
     public string $description = "";
+
+    /**
+     * Date de création de la tâche
+     * @var string
+     */
     public string $date_creation = "";
+
+    /**
+     * Date de fin prévu pour la tâche
+     * @var string
+     */
     public string $date_fin = "";
+
+    /**
+     * Statut de la tâche
+     * @var string
+     */
     public string $statut = "";
 
     // Regarder si on laisse une catégorie à null
@@ -51,8 +79,9 @@ class Tache extends Model{
     /**
      * Catégorie associé à la tâche.
      *
-     * @return User[]|null
+     * @return Categorie|Categorie[]
      */
+
     public function categorie(){
         return $this->belongsTo(Categorie::class, "categorie_id");
     }

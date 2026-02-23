@@ -13,7 +13,16 @@ class Categorie extends Model
 {
     use HasRelationships;
 
+    /**
+     * Clé primaire
+     * @var int
+     */
     public int $id;
+
+    /**
+     * Nom de la catégorie
+     * @var string
+     */
     public string $nom = "";
 
     /**

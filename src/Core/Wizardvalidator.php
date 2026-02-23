@@ -6,23 +6,20 @@ namespace App\Core;
  * Permet la validation des données saisie dans un formulaire
  */
 class Wizardvalidator {
-    /**
-     * @var mixed
-     */
+
     private mixed $data;
-    /**
-     * @var array
-     */
+
     private array $rules;
 
     public array $errors = [];
 
     public array $validated = [];
+
     public array $default_msg = [
-        "max"=>"Le champ :field est trop grand",
-        "min"=>"Le champ :field est trop petit",
-        "unique"=>"Le champ :field existe déjà",
-        "required"=>"le champ :field est requis"
+        "max"      => "Le champ :field est trop grand",
+        "min"      => "Le champ :field est trop petit",
+        "unique"   => "Le champ :field existe déjà",
+        "required" => "le champ :field est requis"
     ];
 
 
@@ -75,7 +72,7 @@ class Wizardvalidator {
      * @param string $field
      * @param $param
      * @param mixed|null $value
-     * @return void
+     * @return mixed
      */
     public function applyRules($name, string $field, $param = null, mixed $value = null)
     {
@@ -99,7 +96,7 @@ class Wizardvalidator {
     }
 
     /**
-     * vérifie le nombre min de caractères saisie par l'utilisateur
+     * Vérifie le nombre min de caractères saisie par l'utilisateur
      * @param string $min
      * @param mixed $value
      * @return bool
@@ -112,7 +109,7 @@ class Wizardvalidator {
     }
 
     /**
-     * vérifie le nombre max de caractères saisie par l'utilisateur
+     * Vérifie le nombre max de caractères saisie par l'utilisateur
      * @param string $max
      * @param mixed $value
      * @return bool
@@ -125,35 +122,36 @@ class Wizardvalidator {
     }
 
     /**
-     * Vérifie si le username n'est pas en doublon
+     * Vérifie que la valeur soit unique
      * @param $param
      * @param $value
      * @return bool
      */
     public function unique($param, $value){
-        //var_dump($param);
         if (str_contains($param, ",")) {
             [$table, $champ] = (explode(",", $param));
 
             $pdo = Database::getPDO();
-            $sql = "SELECT COUNT(id) FROM {$table} WHERE {$champ} = '{$value}'";
-            //var_dump($sql);
-            $req = $pdo->query($sql);
+
+            $sql = "SELECT COUNT(id) FROM {$table} WHERE {$champ} = :value";
+            $req = $pdo->prepare($sql);
+            $req->execute(['value' => $value]);
+
             return $req->fetchColumn() == 0;
         }
     }
 
     /**
-     * Véerifie que le champ username n'est pas vide
+     * Vérifie que la valeur ne soit pas vide
      * @param $value
      * @return bool
      */
     public function required($value){
-        //var_dump($value);
         return !empty($value);
     }
 
     /**
+     * Vérifie si un champ peut être vide
      * @param $value
      * @return bool
      */
@@ -161,22 +159,47 @@ class Wizardvalidator {
         return true;
     }
 
+    /**
+     * Ajoute un message d'erreur pour un champ donné.
+     * @param $nameRule
+     * @param $field
+     * @return void
+     */
     public function addError($nameRule, $field){
         $this-> errors[$field] = $this->getMessageError($nameRule, $field);
-        //var_dump($this-> errors[$field]);
     }
+
+    /**
+     * Retourne les valeurs validées
+     * @return array
+     */
     public function validated(){
         return $this->validated;
     }
+
+    /**
+     * Retourne les erreurs
+     * @return array
+     */
     public function errors(){
         return $this->errors;
     }
 
+    /**
+     * Récupère le message qui correspond au champ
+     * @param string $nameRule
+     * @param string $field
+     * @return array|mixed|string|string[]
+     */
     public function getMessageError(string $nameRule, string $field){
         $msg = $this->default_msg[$nameRule];
         return str_replace(":field", $field, $msg);
     }
 
+    /**
+     * Vérifie que toutes les valeurs dans data n'est pas produit d'erreur
+     * @return bool
+     */
     public function fails(){
         $this->getRules();
         return count ($this->errors) != 0;
