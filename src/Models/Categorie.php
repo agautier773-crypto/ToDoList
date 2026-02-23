@@ -14,7 +14,16 @@ use App\Core\Traits\HasRelationships;
 class Categorie extends Model{
     use HasRelationships;
 
+    /**
+     * Clé primaire
+     * @var int
+     */
     public int $id;
+
+    /**
+     * Nom de la catégorie
+     * @var string
+     */
     public string $nom = "";
 
 
@@ -29,9 +38,9 @@ class Categorie extends Model{
     ];
 
     /**
-     * Tâches associés à cette catégorie.
+     * Tâches associées à cette catégorie.
      *
-     * @return User[]
+     * @return Tache[]
      */
     public function taches(){
         return $this->hasMany(Tache::class, "categorie_id");

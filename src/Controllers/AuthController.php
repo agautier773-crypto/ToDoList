@@ -14,7 +14,7 @@ class AuthController extends Controller
         View::render("auth.login");
     }
 
-    public function AttemptLogin(): void
+    public function attemptLogin(): void
     {
         $validator = new WizardValidator($_POST, [
             "email" => "required",

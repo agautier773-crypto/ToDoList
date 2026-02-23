@@ -52,15 +52,15 @@ trait HasRelationships {
     /**
      * Définit une relation plusieurs à un (N:1)
      * va voir si il y a une clé étrangere dans une table
-     * @param string $targetClass
-     * @param string $foreingKey
+     * @param string $targetClass Class cible
+     * @param string $foreignKey Clé étrangère
      * @return Model|array
      */
-    public function belongsTo(string $targetClass, string $foreingKey):Model|array|bool
+    public function belongsTo(string $targetClass, string $foreignKey):Model|array|bool
     {
         $targetTable = (new $targetClass())->getNameTable();
         $sql = "SELECT * FROM {$targetTable} WHERE id = :id";
-        return $this->readQuery($sql, ["id" => $this->$foreingKey], true, $targetClass);
+        return $this->readQuery($sql, ["id" => $this->$foreignKey], true, $targetClass);
     }
 
     /**

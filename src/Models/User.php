@@ -56,16 +56,12 @@
          "password",
      ];
 
-     /**
-      * Liste des tâches de l'utilisateur
-      */
-     public array $taches;
 
 
      /**
-      * Tâches associés à cette utilisateur.
+      * Tâches associées à cet utilisateur.
       *
-      * @return User[]
+      * @return Tache[]
       */
      public function taches(){
          return $this->belongsToMany(Tache::class, "tache_user");

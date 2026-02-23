@@ -2,7 +2,7 @@
 
 namespace App\Core;
 
-use App\Models\User;
+use Exception;
 
 /**
  * Gestionnaire de vue de l'application
@@ -11,7 +11,7 @@ use App\Models\User;
 class View {
 
     /**
-     * chemin absolu vers le répertoire des vues
+     * Chemin absolu vers le répertoire des vues
      *
      * @var string
      */
@@ -24,10 +24,10 @@ class View {
     /**
      * Affiche une vue dans le layout principal
      * Charge une vue spécifique et l'injecte dans le layout principal
-
      * @param string $view
      * @param array $data
      * @return void
+     * @throws Exception
      */
     public static function render(string $view, array $data = []) {
         if (str_contains($view, ".")){
@@ -44,8 +44,7 @@ class View {
             extract($data);
             require $layout_path;
         }else{
-            throw new \Exception("la vue $view n'existe pas");
+            throw new Exception("la vue $view n'existe pas");
         }
-
     }
 }

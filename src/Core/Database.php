@@ -3,7 +3,9 @@
 namespace App\Core;
 
 use \PDO;
-use App\Core\Config;
+# use App\Core\Config;
+# Pas besoin de le mettre, car même namespace
+
 class Database{
 
     /**
@@ -32,7 +34,6 @@ class Database{
                 echo "Attention erreur connexion base de données ! " . $e->getMessage();
             }
         }
-        // Sinon on retourne l'attribut qui contient PDO directement
     }
 
 }

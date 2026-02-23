@@ -17,10 +17,10 @@ class UserController extends Controller {
     public function store(){
         var_dump($_POST);
         $validator = new WizardValidator($_POST, [
-            "prenom" => "required|min:2|max:1000",
-            "nom" => "required|min:2|max:1000",
+            "prenom" => "required|min:2|max:100",
+            "nom" => "required|min:2|max:100",
             "password" => "required",
-            "email" => "required|min:2",
+            "email" => "required|min:2|unique:user,email",
         ]);
         if ($validator->fails()){
             # erreurs
@@ -35,11 +35,12 @@ class UserController extends Controller {
 
         $user = new User();
         $user->fill($validated);
-
-
         $user->password = password_hash($validated["password"], PASSWORD_DEFAULT);
+
         $user->save();
+
         Session::setFlash("success", "Utilisateur bien créer !");
+        // pourquoi repartir sur la page de création d'un compte ?
         $this->redirect("/users/create");
 
     }
