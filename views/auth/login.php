@@ -1,8 +1,3 @@
-<?php
-
-use App\Helpers\Csrf;
-
-?>
 <!-- ── Dépendances (à inclure une seule fois dans la page hôte) ── -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"/>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
@@ -52,7 +47,7 @@ use App\Helpers\Csrf;
     /* Card */
     .nx-card {
         position:relative; z-index:1;
-        width:100%; max-width:480px;
+        width:100%; max-width:440px;
         border-radius:24px; overflow:hidden;
         box-shadow:0 32px 80px rgba(0,0,0,.55), 0 0 0 1px var(--nx-border);
         background:var(--nx-panel);
@@ -89,25 +84,26 @@ use App\Helpers\Csrf;
     .nx-eye:hover { color:rgba(255,255,255,.6); }
     .nx-pr { padding-right:38px !important; }
 
-    /* Jauge force */
-    .nx-bar { display:flex; gap:4px; margin-top:7px; }
-    .nx-seg { height:3px; flex:1; border-radius:99px; background:rgba(255,255,255,.08); transition:background .3s; }
-
-    /* Checkbox */
-    .nx-check {
-        width:17px; height:17px; border-radius:5px; flex-shrink:0; margin-top:2px;
+    /* Remember me */
+    .nx-remember {
+        display:flex; align-items:center; justify-content:space-between;
+        margin-bottom:24px;
+    }
+    .nx-remember-left { display:flex; align-items:center; gap:8px; }
+    .nx-check-small {
+        width:16px; height:16px; border-radius:4px;
         border:1px solid var(--nx-border); background:var(--nx-card);
         appearance:none; cursor:pointer; position:relative;
         transition:background .2s, border-color .2s;
     }
-    .nx-check:checked { background:var(--nx-violet); border-color:var(--nx-violet); }
-    .nx-check:checked::after {
+    .nx-check-small:checked { background:var(--nx-violet); border-color:var(--nx-violet); }
+    .nx-check-small:checked::after {
         content:''; position:absolute; inset:3px;
         background:url("data:image/svg+xml,%3Csvg viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4L3.5 6.5L9 1' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center/contain;
     }
-    .nx-check-lbl { font-size:.78rem; color:rgba(255,255,255,.45); line-height:1.55; }
-    .nx-check-lbl a { color:var(--nx-blue); text-decoration:none; }
-    .nx-check-lbl a:hover { color:var(--nx-cyan); }
+    .nx-remember-lbl { font-size:.8rem; color:rgba(255,255,255,.5); cursor:pointer; user-select:none; }
+    .nx-forgot { font-size:.8rem; color:var(--nx-blue); text-decoration:none; transition:color .2s; }
+    .nx-forgot:hover { color:var(--nx-cyan); }
 
     /* Bouton submit */
     .nx-btn {
@@ -125,6 +121,49 @@ use App\Helpers\Csrf;
 
     /* Séparateur décoratif */
     .nx-sep { height:1px; background:var(--nx-border); margin: 28px 0; }
+
+    /* Divider OR */
+    .nx-divider {
+        display:flex; align-items:center; gap:12px;
+        margin:24px 0; font-size:.78rem; color:var(--nx-muted);
+    }
+    .nx-divider::before, .nx-divider::after {
+        content:''; flex:1; height:1px; background:var(--nx-border);
+    }
+
+    /* Social buttons */
+    .nx-social { display:flex; gap:10px; }
+    .nx-social-btn {
+        flex:1; display:flex; align-items:center; justify-content:center; gap:8px;
+        padding:11px 14px; border-radius:12px;
+        border:1px solid var(--nx-border); background:var(--nx-card);
+        color:rgba(255,255,255,.70); font-size:.82rem;
+        cursor:pointer; text-decoration:none;
+        transition:background .2s, border-color .2s, color .2s;
+    }
+    .nx-social-btn:hover {
+        background:rgba(255,255,255,.08);
+        border-color:rgba(255,255,255,.20);
+        color:#fff;
+    }
+
+    /* Alert message */
+    .nx-alert {
+        padding:12px 16px; border-radius:12px;
+        margin-bottom:20px; font-size:.85rem; line-height:1.5;
+        display:flex; align-items:flex-start; gap:10px;
+    }
+    .nx-alert-error {
+        background:rgba(255,77,109,.12);
+        border:1px solid rgba(255,77,109,.25);
+        color:rgba(255,140,160,.95);
+    }
+    .nx-alert-success {
+        background:rgba(26,243,217,.12);
+        border:1px solid rgba(26,243,217,.25);
+        color:rgba(26,243,217,.95);
+    }
+    .nx-alert i { flex-shrink:0; margin-top:2px; }
 
     /* Animations */
     .nx-fade > * { opacity:0; transform:translateY(12px); animation:nx-up .45s ease forwards; }
@@ -155,63 +194,46 @@ use App\Helpers\Csrf;
         <div class="nx-fade">
 
             <!-- En-tête -->
-            <div class="nx-title mb-1">Créer un compte</div>
+            <div class="nx-title mb-1">Connexion</div>
             <p class="nx-subtitle mb-4">
-                Déjà membre ? <a href="/login">Se connecter</a>
+                Pas encore de compte ? <a href="/users/create">S'inscrire</a>
             </p>
 
             <div class="nx-sep"></div>
 
-            <!-- ── Formulaire ── -->
-            <form action="/users/create" method="POST">
-                <?= Csrf::field(); ?>
-
-                <!-- Prénom + Nom -->
-                <div class="row g-3 mb-3">
-                    <div class="col-6">
-                        <label for="prenom" class="nx-label">Prénom</label>
-                        <div class="nx-wrap">
-                            <input
-                                    type="text"
-                                    id="prenom"
-                                    name="prenom"
-                                    class="nx-input"
-                                    placeholder="Jean"
-                                    autocomplete="given-name"
-                                    required
-                            />
-                            <i class="bi bi-person nx-ico"></i>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <label for="nom" class="nx-label">Nom</label>
-                        <div class="nx-wrap">
-                            <input
-                                    type="text"
-                                    id="nom"
-                                    name="nom"
-                                    class="nx-input"
-                                    placeholder="Dupont"
-                                    autocomplete="family-name"
-                                    required
-                            />
-                            <i class="bi bi-person nx-ico"></i>
-                        </div>
-                    </div>
+            <!-- Message d'erreur (à afficher conditionnellement via PHP) -->
+            <?php if (isset($error)): ?>
+                <div class="nx-alert nx-alert-error">
+                    <i class="bi bi-exclamation-circle"></i>
+                    <span><?= htmlspecialchars($error) ?></span>
                 </div>
+            <?php endif; ?>
+
+            <!-- Message de succès (ex: "Compte créé avec succès") -->
+            <?php if (isset($success)): ?>
+                <div class="nx-alert nx-alert-success">
+                    <i class="bi bi-check-circle"></i>
+                    <span><?= htmlspecialchars($success) ?></span>
+                </div>
+            <?php endif; ?>
+
+            <!-- ── Formulaire ── -->
+            <form action="/login" method="POST">
 
                 <!-- Email -->
                 <div class="mb-3">
                     <label for="email" class="nx-label">Adresse e-mail</label>
                     <div class="nx-wrap">
                         <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                class="nx-input"
-                                placeholder="jean.dupont@exemple.fr"
-                                autocomplete="email"
-                                required
+                            type="email"
+                            id="email"
+                            name="email"
+                            class="nx-input"
+                            placeholder="jean.dupont@exemple.fr"
+                            autocomplete="email"
+                            value="<?= htmlspecialchars($_POST['email'] ?? '') ?>"
+                            required
+                            autofocus
                         />
                         <i class="bi bi-envelope nx-ico"></i>
                     </div>
@@ -222,67 +244,43 @@ use App\Helpers\Csrf;
                     <label for="password" class="nx-label">Mot de passe</label>
                     <div class="nx-wrap">
                         <input
-                                type="password"
-                                id="password"
-                                name="password"
-                                class="nx-input nx-pr"
-                                placeholder="8 caractères minimum"
-                                autocomplete="new-password"
-                                oninput="nxStrength(this.value)"
-                                required
+                            type="password"
+                            id="password"
+                            name="password"
+                            class="nx-input nx-pr"
+                            placeholder="Votre mot de passe"
+                            autocomplete="current-password"
+                            required
                         />
                         <i class="bi bi-lock nx-ico"></i>
                         <button class="nx-eye" type="button" onclick="nxTogglePw('password','nx-eye-pw')">
                             <i class="bi bi-eye" id="nx-eye-pw"></i>
                         </button>
                     </div>
-                    <div class="nx-bar">
-                        <div class="nx-seg" id="nx-s1"></div>
-                        <div class="nx-seg" id="nx-s2"></div>
-                        <div class="nx-seg" id="nx-s3"></div>
-                        <div class="nx-seg" id="nx-s4"></div>
-                    </div>
                 </div>
 
-                <!-- Confirmation mot de passe -->
-                <div class="mb-4">
-                    <label for="password_confirmation" class="nx-label">Confirmer le mot de passe</label>
-                    <div class="nx-wrap">
+                <!-- Remember me + Mot de passe oublié -->
+                <div class="nx-remember">
+                    <div class="nx-remember-left">
                         <input
-                                type="password"
-                                id="password_confirmation"
-                                name="password_confirmation"
-                                class="nx-input nx-pr"
-                                placeholder="Répétez votre mot de passe"
-                                autocomplete="new-password"
-                                required
-                        />
-                        <i class="bi bi-lock-fill nx-ico"></i>
-                        <button class="nx-eye" type="button" onclick="nxTogglePw('password_confirmation','nx-eye-pw2')">
-                            <i class="bi bi-eye" id="nx-eye-pw2"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <!-- CGU -->
-                <div class="d-flex align-items-start gap-2 mb-4">
-                    <input
                             type="checkbox"
-                            id="accept_terms"
-                            name="accept_terms"
+                            id="remember_me"
+                            name="remember_me"
                             value="1"
-                            class="nx-check"
-                            required
-                    />
-                    <label class="nx-check-lbl" for="accept_terms">
-                        J'accepte les <a href="/users/terms">conditions d'utilisation</a>
-                        et la <a href="/users/privacy">politique de confidentialité</a>.
-                    </label>
+                            class="nx-check-small"
+                        />
+                        <label for="remember_me" class="nx-remember-lbl">
+                            Se souvenir de moi
+                        </label>
+                    </div>
+                    <a href="/" class="nx-forgot">
+                        Mot de passe oublié ?
+                    </a>
                 </div>
 
                 <!-- Submit -->
                 <button type="submit" class="nx-btn">
-                    Créer mon compte &nbsp;→
+                    Se connecter &nbsp;→
                 </button>
 
             </form>
@@ -306,20 +304,6 @@ use App\Helpers\Csrf;
         } else {
             input.type     = 'password';
             icon.className = 'bi bi-eye';
-        }
-    }
-
-    /* Jauge de force du mot de passe */
-    const nxColors = ['#FF4D6D', '#FF9A3C', '#7EB5D8', '#1AF3D9'];
-    function nxStrength(val) {
-        let score = 0;
-        if (val.length >= 8)            score++;
-        if (/[A-Z]/.test(val))          score++;
-        if (/[0-9]/.test(val))          score++;
-        if (/[^A-Za-z0-9]/.test(val))   score++;
-        for (let i = 1; i <= 4; i++) {
-            document.getElementById('nx-s' + i).style.background =
-                i <= score ? nxColors[score - 1] : 'rgba(255,255,255,.08)';
         }
     }
 </script>

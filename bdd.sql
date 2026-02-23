@@ -1,10 +1,11 @@
--- Copie Colle le DCL et DDL
--- DCL
+-- Copie Colle le DCL puis le create du DDL
 
+
+-- DCL
 -- Creation BDD
 Create Database IF NOT EXISTS ToDoList;
 
--- Creation user
+-- Creation user: vous pouvez changez les lambas mais faites attention à la config.php
 CREATE USER IF NOT EXISTS 'lambdas'@'localhost' IDENTIFIED BY 'lambdas';
 
 -- Accorde les droit sur la base
@@ -53,16 +54,3 @@ CREATE TABLE IF NOT EXISTS tache_user(
     FOREIGN KEY (tache_id) REFERENCES tache(id) ON UPDATE CASCADE ON DELETE RESTRICT,
     FOREIGN KEY (user_id) REFERENCES user(id) ON UPDATE CASCADE ON DELETE RESTRICT
 ) ENGINE=InnoDB;
-
-
-
--- DML
-------------------------------- DELETE --------------------------------
-TRUNCATE TABLE tache_user;
-TRUNCATE TABLE user;
-TRUNCATE TABLE tache;
-TRUNCATE TABLE categorie;
-
-
-commit;
----------------------------------------------------------------------
