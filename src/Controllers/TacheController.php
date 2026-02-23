@@ -24,6 +24,7 @@ class TacheController extends Controller{
         View::render("tache.form",[
             'tache'=> $tache,
             'categories'=> $categories,
+            "titre" => "Ajouter une nouvelle tâche",
         ]);
     }
 
@@ -121,6 +122,7 @@ class TacheController extends Controller{
             "categories" => (new Categorie())->findAll(),
             // Pour avoir que les tâches lié à l'utilisateur connecté
             "tache" => (new User())->find(Auth::id())->taches(),
+            "titre" => "Ajouter nouvelle tâche",
         ]);
     }
 

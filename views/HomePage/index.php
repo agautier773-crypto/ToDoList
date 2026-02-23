@@ -1,4 +1,3 @@
-
 <style>
     :root {
         --violet: #7048E9;
