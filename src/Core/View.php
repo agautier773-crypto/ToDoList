@@ -38,9 +38,14 @@ class View {
         if (file_exists($layout_path)) {
             $view_file = self::$view_path . "/" . $view .".php";
             if (file_exists($view_file)) {
-                $data["content"] =  $view_file;
+                extract($data);
+                ob_start();
+                require $view_file;
+                $content = ob_get_clean();
             }
             $data["messages"] = Session::getAllFlashes();
+            $data["content"] = $content ?? "";
+            $data["titre"] = $titre ?? "ToDoList";
             extract($data);
             require $layout_path;
         }else{
