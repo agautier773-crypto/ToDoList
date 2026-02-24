@@ -5,7 +5,7 @@ return [
         "name" => "ToDoList",
     ],
     "database" => [
-        "host" => "localhost",
+        "host" => "db",
         "name" => "ToDoList",
         "username" => "lambdas",
         "password" => "lambdas",

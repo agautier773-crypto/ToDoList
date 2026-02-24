@@ -15,11 +15,11 @@ class View {
      *
      * @var string
      */
-    public static string $view_path = "C:/Wamp64/www/ToDoList/views";
+    public static string $view_path = "/var/www/html/views";
     /**
      * @var string
      */
-    public static string $layout_path = "C:/Wamp64/www/ToDoList/views/layouts";
+    public static string $layout_path = "/var/www/html/views/layouts";
 
     /**
      * Affiche une vue dans le layout principal
@@ -34,7 +34,6 @@ class View {
             $view = str_replace(".", "/", $view);
         }
         $layout_path = self::$layout_path . "/main.php";
-
         if (file_exists($layout_path)) {
             $view_file = self::$view_path . "/" . $view .".php";
             if (file_exists($view_file)) {
