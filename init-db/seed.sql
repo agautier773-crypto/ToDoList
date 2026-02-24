@@ -1,12 +1,9 @@
--- DML
-------------------------------- DELETE --------------------------------
-DELETE TABLE tache_user;
-DELETE TABLE user;
-DELETE TABLE tache;
-DELETE TABLE categorie;
 
+-- DELETE TABLE tache_user;
+-- DELETE TABLE user;
+-- DELETE TABLE tache;
+-- DELETE TABLE categorie;
 
-------------------------------- INSERT --------------------------------------
 
 INSERT INTO categorie (nom) VALUES
 ('Ménagère'),

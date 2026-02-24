@@ -1,0 +1,67 @@
+# Liste des services du gestionnaire de conteneurs
+services:
+  # app
+  # contient apache (serveur web) + php (langage serveur)
+  app:
+    build: . # ici on utilise l'image custom dans le Dockerfile (le . represente le dossier courant, docker résout tout seul le chemin du Dockerfile)
+    container_name: app # le nom du conteneur il doit êtreunique
+    # les ports utiliser par le service pour communiquer
+    ports:
+      - "8081:80" # http://localhost:8081
+    # les volumes utiliser par le service
+    # [chemin_hote:chemin_conteneur] represente un volume en "bind mount" c'est a dire que le dossier hote et conteneur sont synchroniser en temps réel (hotloader++) utiliser pour le code source
+    # [nom_volume:chemin_conteneur] represente un volume nommée (pour du stockage persistant) il est gerer par dockerutilisé pour stocker la donnée
+    volumes:
+      - .:/var/www/html
+    # ajoute une condition sur l'ordre de demarrage (doit demarrer apres le conteneur avec le nom "db")
+    depends_on:
+      - db
+
+    # db
+    # contient le serveur de base de données (mysql)
+  db:
+    image: mysql:8.0 # on utilise l'image mysql en version8.0
+    container_name: db # le nom du conteneur il doit être unique
+    # déclaration des variables d'environnement
+    environment:
+      # ici on evite de mettre les informations en dur caron souhaite pouvoir commit ce fichier sans informations sensibles
+      # on passe donc par un .env
+      # on autorise le mot de passe root a être vide
+      MYSQL_ALLOW_EMPTY_PASSWORD: true
+      # le nom de la bdd a utiliser
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      # le nom de l'utilisateur
+      MYSQL_USER: ${MYSQL_USER}
+      # le mot de passe de l'utilisateur
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      # les volumes utiliser par le service
+      # [chemin_hote:chemin_conteneur] represente un volume en "bind mount" c'est a dire que le dossier hote et conteneur sont synchroniser en temps réel (hotloader++) utiliser pour le code source
+      # [nom_volume:chemin_conteneur] represente un volume nommée (pour du stockage persistant) il est gerer par dockerutilisé pour stocker la donnée
+    volumes:
+      - todolist_data:/var/lib/mysql # persistancedes données (avec un volume nommé)
+      - ./init-db:/docker-entrypoint-initdb.d # utilise les fichiers .sql dans init-db pour hydrater la bdd
+    # phpmyadmin (pma)
+    # interface web pour la gestion de la base de données
+  phpmyadmin:
+    image: phpmyadmin:latest # ici on utilise la derniere version de phpmyadmin disponible
+    container_name: phpmyadmin # le nom du conteneur il doit être unique
+    # doit demmarer apres le conteneur avec le nom "db"
+    depends_on:
+      - db
+    # déclaration des variables d'environnement
+    environment:
+    # on dit a pma sur quel base de données il doit se greffer
+      PMA_HOST: db
+    # les ports utiliser par le service pour communiquer
+    ports:
+      - "8082:80" # http://localhost:8080
+
+# déclaration des volumes a docker
+volumes:
+  todolist_data: # on indique le nom du volume que docker doit utiliser
+
+# config rzo pour docker
+networks:
+  app-network: # nom de notre rzo
+  # les conteneurs sont connecter en ponts les uns les autres
+    driver: bridge

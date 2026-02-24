@@ -1,27 +1,12 @@
--- Copie Colle le DCL puis le create du DDL
-
-
--- DCL
--- Creation BDD
 Create Database IF NOT EXISTS ToDoList;
-
--- Creation user: vous pouvez changez les lambas mais faites attention à la config.php
-CREATE USER IF NOT EXISTS 'lambdas'@'localhost' IDENTIFIED BY 'lambdas';
-
--- Accorde les droit sur la base
-GRANT ALL PRIVILEGES ON ToDoList.* TO 'lambdas'@'localhost';
 
 USE ToDoList;
 
-
--- DDL
-------------------------------- DROP --------------------------------
 DROP TABLE IF EXISTS tache_user;
 DROP TABLE IF EXISTS tache;
 DROP TABLE IF EXISTS user;
 DROP TABLE IF EXISTS categorie;
 
------------------------------- CREATE -------------------------------
 CREATE TABLE IF NOT EXISTS categorie(
     id INT AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(100) NOT NULL

@@ -32,6 +32,7 @@ class Database{
                 return self::$pdo;
             } catch (\Exception $e) {
                 echo "Attention erreur connexion base de données ! " . $e->getMessage();
+                return null;
             }
         }
     }
