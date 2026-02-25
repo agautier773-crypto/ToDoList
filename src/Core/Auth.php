@@ -28,7 +28,6 @@ class Auth{
 
     public static function attempt($validated): void{
         $user = (new User())->findBy("email", $validated["email"], true);
-        var_dump($user);
         if ($user) {
             if (password_verify($validated["password"], $user->password)) {
                 self::login($user);

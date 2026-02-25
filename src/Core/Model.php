@@ -66,8 +66,6 @@ class Model {
     public function create():bool{
         $values = $this->getPreparedValues();
         $sql = "INSERT INTO {$this->getNameTable()} ({$this->getFields()}) VALUES ({$values})";
-        var_dump($values, $sql);
-
         return $this->writeQuery($sql, $this->getValues());
     }
 

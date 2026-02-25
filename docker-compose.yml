@@ -34,6 +34,7 @@ services:
       MYSQL_USER: ${MYSQL_USER}
       # le mot de passe de l'utilisateur
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      LANG: C.UTF-8
       # les volumes utiliser par le service
       # [chemin_hote:chemin_conteneur] represente un volume en "bind mount" c'est a dire que le dossier hote et conteneur sont synchroniser en temps réel (hotloader++) utiliser pour le code source
       # [nom_volume:chemin_conteneur] represente un volume nommée (pour du stockage persistant) il est gerer par dockerutilisé pour stocker la donnée

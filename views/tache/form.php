@@ -167,7 +167,7 @@ if (isset($tache->id)){
             <!-- Catégorie -->
             <div class="mb-4">
                 <label class="form-label">Catégorie <span style="color:var(--cyan)">*</span></label>
-                <select name="categorie_id" class="form-select">
+                <select name="categorie" class="form-select">
                     <option disabled <?= !$tache->categorie_id ? 'selected' : '' ?>> Choisir une catégorie </option>
                     <?php foreach ($categories as $categorie): ?>
                         <option value="<?= $categorie->id ?>"

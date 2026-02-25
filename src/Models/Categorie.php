@@ -15,9 +15,9 @@ class Categorie extends Model
 
     /**
      * Clé primaire
-     * @var int
+     * @var ?int
      */
-    public int $id;
+    public ?int $id;
 
     /**
      * Nom de la catégorie

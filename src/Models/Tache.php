@@ -15,9 +15,9 @@ class Tache extends Model{
 
     /**
      * Clé primaire
-     * @var int
+     * @var ?int
      */
-    public int $id;
+    public ?int $id;
 
     /**
      * Titre de la tâche

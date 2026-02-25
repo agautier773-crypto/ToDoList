@@ -29,12 +29,11 @@ class TacheController extends Controller{
     }
 
     public function store(){
-        var_dump($_POST);
         $validator = new WizardValidator($_POST, [
             "titre" => "required|min:5|max:200",
             "description" => "nullable|required|min:2|max:1000",
             "date_fin" => "required",
-            "categorie_id"=> "required",
+            "categorie"=> "required",
         ]);
 
         if ($validator->fails()){
