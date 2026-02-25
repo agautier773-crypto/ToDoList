@@ -15,7 +15,6 @@ class UserController extends Controller {
     }
 
     public function store(){
-        var_dump($_POST);
         $validator = new WizardValidator($_POST, [
             "prenom" => "required|min:2|max:100",
             "nom" => "required|min:2|max:100",
@@ -41,7 +40,7 @@ class UserController extends Controller {
 
         Session::setFlash("success", "Utilisateur bien créer !");
         // pourquoi repartir sur la page de création d'un compte ?
-        $this->redirect("/users/create");
+        $this->redirect("/");
 
     }
 
