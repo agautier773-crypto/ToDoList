@@ -5,12 +5,12 @@
 3 ==>  à la fin de l'installation si vous rencontrez un problème avec Docker
        activer la virtualisation depuis le Bios de votre machine
 
-4 ==> Une fois Docker bien installer et que vous l'avez lancer, Mettez vous sur le dossier WWW de Wamp
-       --> assurer vous de ne pas avoir un dossier au même nom que le projet << ToDoList >>
-       --> clique droit pour ouvrir un terminal git bash puis lancer la commande :
+4 ==> Une fois Docker bien installer et que vous l'avez lancer,
+      
+       --> ouvrrir un terminal git bash choisir l'emplacement ou vous voulez mettre le projet puis lancer la commande :
            git clone git@github.com:agautier773-crypto/ToDoList.git
 
-5 ==> une fois le projet récupérer et se trouve bien sur le dossier www de Wamp
+5 ==> une fois le projet récupérer et se trouve bien sur l'emplacement que vous avez choisi 
       ouvrez le avec un IDE et ajoutez un fichier .env a la racine du projet
     
 
